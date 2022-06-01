@@ -74,7 +74,7 @@ class HomeScreen extends StatelessWidget {
                   leading: GestureDetector(
                     child: Icon(Icons.account_balance),
                     onTap: () {
-                      // Action 1
+                      // Action 2
                     },
                   ),
                   onTap: (){
