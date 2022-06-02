@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:v_leauge/routs.dart';
+import 'package:v_leauge/screens/profile_screen/profilepage.dart';
 
 import 'screens/home_screen/home.dart';
 
@@ -18,9 +19,9 @@ class MyApp extends StatelessWidget {
 
         primarySwatch: Colors.blue,
       ),
-      // home: const MyHomePage(title: 'Flutter Demo Home Page'),
-      initialRoute: HomeScreen.routeName,
-      routes: routes,
+       home: ProfilePage(),
+     // initialRoute: HomeScreen.routeName,
+     // routes: routes,
     );
   }
 }
