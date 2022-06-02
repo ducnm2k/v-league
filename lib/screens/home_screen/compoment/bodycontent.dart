@@ -12,7 +12,10 @@ class BodyContent extends StatelessWidget {
     return Column(
       children: <Widget>[
         Image.asset(
-          image,height: 225,
+          image,
+          width: MediaQuery.of(context).size.width,
+          height: 220,
+          fit: BoxFit.fill,
         ),
       ],
     );

@@ -7,28 +7,30 @@ AppBar buildAppBar() {
     backgroundColor: Colors.green,
     centerTitle: true,
     automaticallyImplyLeading: true,
+
     actions: <Widget>[
       PopupMenuButton(
           icon: Icon(Icons.account_circle),
           itemBuilder: (context)=>[
             PopupMenuItem(
               value: 1,
-              child: Text("Linh"),
+              child: Text("Profile"),
             ),
             PopupMenuItem(
               value: 2,
-              child: Text("Chi"),
+              child: Text("Sign In"),
             ),
             PopupMenuItem(
               value: 3,
-              child: Text("Đức"),
+              child: Text("Sign Up"),
             ),
             PopupMenuItem(
               value: 4,
-              child: Text("Hưng"),
+              child: Text("LogOut"),
             ),
           ]
       ),
+      Text('data'),
     ],
   );
 }
