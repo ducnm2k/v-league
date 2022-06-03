@@ -30,7 +30,6 @@ AppBar buildAppBar() {
             ),
           ]
       ),
-      Text('data'),
     ],
   );
 }

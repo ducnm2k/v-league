@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:v_leauge/routs.dart';
 import 'package:v_leauge/screens/login_screen/compoment/login_screen.dart';
-import 'package:v_leauge/screens/profile_screen/profilepage.dart';
 
-import 'screens/home_screen/home.dart';
 
-void main() {
+
+void main() async {
   runApp(const MyApp());
 }
 
