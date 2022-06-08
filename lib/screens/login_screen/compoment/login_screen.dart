@@ -5,7 +5,6 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:v_leauge/screens/home_screen/home.dart';
 import 'package:v_leauge/screens/login_screen/compoment/page_title_bar.dart';
 import 'package:v_leauge/screens/login_screen/compoment/under_part.dart';
-import 'package:v_leauge/screens/login_screen/compoment/upside.dart';
 
 import '../../../constants.dart';
 import '../../../widgets/rounded_button.dart';
@@ -30,8 +29,11 @@ class LoginForm extends StatelessWidget {
           child: SingleChildScrollView(
             child: Stack(
               children: [
-                const Upside(
-                  imgUrl: "assets/images/login.png",
+                Align(
+                  alignment: Alignment.bottomCenter,
+                  child: Image.asset('assets/images/logo.jpg',
+                  height: 200,
+                  ),
                 ),
                 const PageTitleBar(title: 'Login to your account'),
                 Padding(
@@ -61,11 +63,11 @@ class LoginForm extends StatelessWidget {
                                       accessToken: googleauth.accessToken,
                                       idToken: googleauth.idToken
                                   );
-                                  await FirebaseAuth.instance.signInWithCredential(creds).whenComplete(() => HomeScreen());
+                                  await FirebaseAuth.instance.signInWithCredential(creds);
+                                  Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen()));
                                 } catch (e) {
                                   print(e);
                                 }
-                                // Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen()));
                               },
                               child: Text("Login with google")),
 

@@ -1,32 +1,29 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
+import 'package:v_leauge/screens/login_screen/compoment/login_screen.dart';
 
 import 'compoment/appbar.dart';
 import 'compoment/body.dart';
 
-class HomeScreen extends StatelessWidget {
-  HomeScreen({Key? key}) : super(key: key);
-  static String routeName = "/home";
-  int _index = 0;
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({Key? key}) : super(key: key);
 
   @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  int _selectedIndex =0;
+  late final String tabItem;
+
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+  @override
   Widget build(BuildContext context) {
-    switch (_index) {
-      case 0:
-        break;
-      case 1:
-        break;
-      case 2:
-        break;
-      case 3:
-        break;
-      case 4:
-        break;
-      case 5:
-        break;
-      case 6:
-        break;
-    }
     return SafeArea(
         child: Scaffold(
           appBar: buildAppBar(),
@@ -54,8 +51,10 @@ class HomeScreen extends StatelessWidget {
                 label: 'Hồ Sơ',
               ),
             ],
+            currentIndex: _selectedIndex,
+            selectedItemColor: Colors.green.shade800,
+            onTap: _onItemTapped,
           ),
-          //_onTap function
           body: Body(),
         )
     );

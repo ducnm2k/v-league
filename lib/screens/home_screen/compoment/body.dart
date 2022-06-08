@@ -58,7 +58,9 @@ class _BodyState extends State<Body> {
                                   (index) => buildDot(index: index),
                             ),
                           ),
-
+                          SizedBox(
+                            height: 20,
+                          ),
                           Text("LATEST RESULT",
                             style: TextStyle(
                                 fontSize: 30,
