@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:v_leauge/screens/login_screen/compoment/login_screen.dart';
+import 'package:v_leauge/screens/login_screen/login_screen.dart';
 
 import 'compoment/appbar.dart';
 import 'compoment/body.dart';

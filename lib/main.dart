@@ -1,5 +1,8 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:v_leauge/screens/login_screen/login_screen.dart';
+import 'package:v_leauge/screens/player_stat_screen/player_stat.dart';
+import 'package:v_leauge/screens/profile_screen/profilepage.dart';
 
 import 'screens/home_screen/home.dart';
 
@@ -22,7 +25,7 @@ class MyApp extends StatelessWidget {
 
         primarySwatch: Colors.blue,
       ),
-        home: HomeScreen(),
+        home: LoginForm(),
      // initialRoute: HomeScreen.routeName,
      // routes: routes,
     );

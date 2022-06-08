@@ -2,7 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
-import '../../login_screen/compoment/login_screen.dart';
+import '../../login_screen/login_screen.dart';
 
 
 AppBar buildAppBar() {

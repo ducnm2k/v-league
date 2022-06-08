@@ -5,15 +5,15 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:v_leauge/screens/home_screen/home.dart';
 import 'package:v_leauge/screens/login_screen/compoment/page_title_bar.dart';
 import 'package:v_leauge/screens/login_screen/compoment/under_part.dart';
-import 'package:v_leauge/screens/login_screen/compoment/upside.dart';
+
 
 import '../../../constants.dart';
 import '../../../widgets/rounded_button.dart';
 import '../../../widgets/rounded_input_field.dart';
 import '../../../widgets/rounded_password_field.dart';
 
-class LoginForm extends StatelessWidget {
-  const LoginForm({Key? key}) : super(key: key);
+class Staff_players extends StatelessWidget {
+  const Staff_players({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -30,9 +30,7 @@ class LoginForm extends StatelessWidget {
           child: SingleChildScrollView(
             child: Stack(
               children: [
-                const Upside(
-                  imgUrl: "assets/images/login.png",
-                ),
+                Image.asset('assets/images/logo.jpg'),
                 const PageTitleBar(title: 'Login to your account'),
                 Padding(
                     padding: const EdgeInsets.only(top: 320.0),
@@ -99,7 +97,7 @@ class LoginForm extends StatelessWidget {
                                         context,
                                         MaterialPageRoute(
                                             builder: (context) =>
-                                            const LoginForm()));
+                                            const Staff_players()));
                                   },
                                 ),
                                 const SizedBox(
