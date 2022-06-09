@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:v_leauge/screens/news_screen/models/news_model.dart';
 import 'package:v_leauge/screens/news_screen/read_new_view.dart';
 
 import '../../widgets/primary_card.dart';
+import 'compoment/news_model.dart';
 
 class HotTabView extends StatelessWidget {
   const HotTabView({Key? key}) : super(key: key);
@@ -15,8 +15,7 @@ class HotTabView extends StatelessWidget {
       shrinkWrap: true,
       physics: BouncingScrollPhysics(),
       itemBuilder: (context, index) {
-        var hot = hotList[index];
-
+        var hot = List[];
         return InkWell(
           onTap: () {
             Navigator.push(

@@ -48,7 +48,6 @@ class _BodyState extends State<Body> {
               Expanded(
                 flex: 2,
                   child:SingleChildScrollView(
-                    //scrollDirection: Axis,
                     child: SizedBox(
                       child: Column(
                         children: <Widget>[
@@ -74,7 +73,10 @@ class _BodyState extends State<Body> {
                               Expanded(
                                   child: FittedBox(
                                     fit: BoxFit.contain,
-                                    child: Image(image: AssetImage("assets/images/logo_bfc.png"), height: 100, width: 100,),
+                                    child: Image(image: AssetImage("assets/images/logo_bfc.png"),
+                                      height: 10,
+                                      width: 10,
+                                    ),
                                   ),
                               ),
                               Text("0", style: TextStyle(fontSize: 40),),
@@ -83,7 +85,10 @@ class _BodyState extends State<Body> {
                               Expanded(
                                 child: FittedBox(
                                   fit: BoxFit.contain,
-                                  child: Image(image: AssetImage("assets/images/logo_hanoi.png"), height: 100, width: 100,),
+                                  child: Image(image: AssetImage("assets/images/logo_hanoi.png"),
+                                    height: 10,
+                                    width: 10,
+                                  ),
                                 ),
                               ),
                             ],

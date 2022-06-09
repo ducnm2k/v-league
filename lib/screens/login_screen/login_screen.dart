@@ -2,7 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:v_leauge/screens/home_screen/home.dart';
+import 'package:v_leauge/footer_bar.dart';
 import 'package:v_leauge/screens/login_screen/compoment/page_title_bar.dart';
 import 'package:v_leauge/screens/login_screen/compoment/under_part.dart';
 
@@ -64,7 +64,7 @@ class LoginForm extends StatelessWidget {
                                       idToken: googleauth.idToken
                                   );
                                   await FirebaseAuth.instance.signInWithCredential(creds);
-                                  Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen()));
+                                  Navigator.push(context, MaterialPageRoute(builder: (context) => FooterBar()));
                                 } catch (e) {
                                   print(e);
                                 }

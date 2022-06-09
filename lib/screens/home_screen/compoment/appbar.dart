@@ -1,6 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:v_leauge/screens/home_screen/home.dart';
+
 
 import '../../login_screen/login_screen.dart';
 
@@ -18,19 +20,36 @@ AppBar buildAppBar() {
           icon: Icon(Icons.account_circle),
           itemBuilder: (context)=>[
             PopupMenuItem(
-              value: 1,
+              value: 0,
               child: Text("Profile"),
+
+            ),
+            PopupMenuItem(
+              value: 1,
+              child: Text("Sign In"),
+              // onTap: (){
+              //   WidgetsBinding.instance!.addPostFrameCallback((timeStamp) {
+              //     Navigator.push(
+              //         context,
+              //         MaterialPageRoute(
+              //             builder: (context) => HomeScreen()));
+              //   });
+              // },
             ),
             PopupMenuItem(
               value: 2,
-              child: Text("Sign In"),
-            ),
-            PopupMenuItem(
-              value: 3,
               child: Text("Sign Up"),
+              // onTap: (){
+              //   WidgetsBinding.instance!.addPostFrameCallback((timeStamp) {
+              //     Navigator.push(
+              //         context,
+              //         MaterialPageRoute(
+              //             builder: (context) => HomeScreen()));
+              //   });
+              // },
             ),
             PopupMenuItem (
-              value: 4,
+              value: 3,
               child: Text("LogOut"),
               onTap: () async{
                 await _googleSignin.signOut();

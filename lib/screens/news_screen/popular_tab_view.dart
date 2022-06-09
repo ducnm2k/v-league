@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:v_leauge/screens/news_screen/read_new_view.dart';
-
 import '../../widgets/primary_card.dart';
-import 'models/news_model.dart';
+import 'compoment/news_model.dart';
 
 class PopularTabView extends StatelessWidget {
   const PopularTabView({Key? key}) : super(key: key);
@@ -33,7 +32,6 @@ class PopularTabView extends StatelessWidget {
                         margin: EdgeInsets.only(right: 12.0),
                         child: PrimaryCard(news: news),
                       ),
-
                   );
               },),
           ),
