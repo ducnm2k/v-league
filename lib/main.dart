@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
 
         primarySwatch: Colors.blue,
       ),
-       home: LoginForm(),
+       home: ProfilePage(),
      // initialRoute: HomeScreen.routeName,
      // routes: routes,
     );
