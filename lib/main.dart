@@ -22,10 +22,9 @@ class MyApp extends StatelessWidget {
 
         primarySwatch: Colors.blue,
       ),
-        home: FooterBar(),
+       home: ProfilePage(),
      // initialRoute: HomeScreen.routeName,
      // routes: routes,
     );
   }
 }
-

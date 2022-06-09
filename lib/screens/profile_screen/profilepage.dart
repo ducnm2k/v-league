@@ -1,160 +1,153 @@
 import 'package:flutter/material.dart';
 
 class ProfilePage extends StatelessWidget {
-  Widget textfield({@required hintText}) {
-    return Material(
-      elevation: 4,
-      shadowColor: Colors.grey,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10),
-      ),
-      child: TextField(
-        decoration: InputDecoration(
-            hintText: hintText,
+
+  Widget _textFormField(){
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+            padding: EdgeInsets.symmetric(vertical: 15),
+        child: TextFormField(
+          style: TextStyle(color: Colors.black),
+          decoration: InputDecoration(
+            counterStyle: TextStyle(color: Colors.black),
+            focusColor: Colors.black,
+            icon: Icon(Icons.email),
+            hintText: 'Email',
             hintStyle: TextStyle(
-              letterSpacing: 2,
-              color: Colors.black54,
-              fontWeight: FontWeight.bold,
+              color: Colors.black,
             ),
-            fillColor: Colors.white30,
-            filled: true,
-            border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10.0),
-                borderSide: BorderSide.none)),
-      ),
+          ),
+        ),
+        ),
+        Padding(
+          padding: EdgeInsets.symmetric(vertical: 15),
+          child: TextFormField(
+            style: TextStyle(color: Colors.black),
+            decoration: InputDecoration(
+              counterStyle: TextStyle(color: Colors.black),
+              focusColor: Colors.black,
+              icon: Icon(Icons.person),
+              hintText: 'Fullname',
+              hintStyle: TextStyle(
+                color: Colors.black,
+              ),
+            ),
+          ),
+        ),
+        Padding(
+          padding: EdgeInsets.symmetric(vertical: 15),
+          child: TextFormField(
+            obscureText: true,
+            style: TextStyle(color: Colors.black),
+            decoration: InputDecoration(
+              counterStyle: TextStyle(color: Colors.black),
+              focusColor: Colors.black,
+              icon: Icon(Icons.lock),
+              hintText: 'Password',
+              hintStyle: TextStyle(
+                color: Colors.black,
+              ),
+            ),
+          ),
+        ),
+        SizedBox(
+          height: 20,
+        ),
+        Container(
+          height: 55,
+          width: 100,
+          decoration: BoxDecoration(
+            boxShadow: [
+              BoxShadow(
+    color: Color.fromARGB(90, 20, 20, 20),
+    blurRadius: 10,
+    offset: Offset(6,6),
+    )
+    ]
+            ),
+    child: RaisedButton(
+      color: Color(0xfff6f6f6),
+      onPressed: (){},
+      child: Text('Update',style: TextStyle(color: Colors.blueAccent),),
+          ),
+        )
+
+      ],
     );
   }
-
-  @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context){
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        elevation: 0.0,
-        backgroundColor: Color(0xff555555),
-        leading: IconButton(
-          icon: Icon(
-            Icons.arrow_back,
-            color: Colors.white,
+        title: Text(
+          "Profile",
+          style: TextStyle(
+            fontSize: 25,
+            color: Colors.black,
           ),
-          onPressed: () {},
         ),
+        centerTitle: true,
+        elevation: 0,
       ),
       body: Stack(
-        alignment: Alignment.center,
         children: [
-          Column(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              Container(
-                height: 450,
-                width: double.infinity,
-                margin: EdgeInsets.symmetric(horizontal: 10),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    textfield(
-                      hintText: 'Username',
-                    ),
-                    textfield(
-                      hintText: 'Email',
-                    ),
-                    textfield(
-                      hintText: 'Password',
-                    ),
-                    textfield(
-                      hintText: 'Confirm password',
-                    ),
-                    Container(
-                      height: 55,
-                      width: double.infinity,
-                      child: RaisedButton(
-                        onPressed: () {},
-                        color: Colors.black54,
-                        child: Center(
-                          child: Text(
-                            "Update",
-                            style: TextStyle(
-                              fontSize: 23,
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
-                      ),
-                    )
-                  ],
-                ),
-              )
-            ],
-          ),
-          CustomPaint(
-            child: Container(
-              width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height,
+          Container(
+            color: Color(0xfff6f6f6),
+            height: double.infinity,
+            width: double.infinity,
+            padding: EdgeInsets.only(
+              top: 250,
+              left: 20,
+              right: 20,
             ),
-            painter: HeaderCurvedContainer(),
+            child: SingleChildScrollView(
+
+              child: _textFormField(),),
           ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Padding(
-                padding: EdgeInsets.all(20),
-                child: Text(
-                  "Profile",
-                  style: TextStyle(
-                    fontSize: 35,
-                    letterSpacing: 1.5,
-                    color: Colors.white,
-                    fontWeight: FontWeight.w600,
+          Container(
+            height: 180,
+            color: Colors.white,
+          ),
+          Container(
+            width: double.infinity,
+            height: 190,
+            margin: EdgeInsets.symmetric(
+                vertical: 40,
+            horizontal: 20,
+            ),
+            decoration: BoxDecoration(
+              color: Color(0xfff6f6f6),
+              borderRadius: BorderRadius.circular(10),
+              boxShadow: [
+                BoxShadow(
+                  color: Color.fromARGB(90, 20, 20, 20),
+                  blurRadius: 0.8,
+                  offset: Offset(9,9),
+                ),
+              ],
+            ),
+            child: Column(
+              children: [
+                CircleAvatar(
+                  backgroundColor: Colors.white,
+                  radius: 45,
+                  child: CircleAvatar(
+                    backgroundColor: Colors.grey,
+                    radius: 42,
+                    backgroundImage: AssetImage("assets/images/login.png"),
                   ),
                 ),
-              ),
-              Container(
-                padding: EdgeInsets.all(10.0),
-                width: MediaQuery.of(context).size.width / 2,
-                height: MediaQuery.of(context).size.width / 2,
-                decoration: BoxDecoration(
-                  border: Border.all(color: Colors.white, width: 5),
-                  shape: BoxShape.circle,
-                  color: Colors.white,
-                  image: DecorationImage(
-                    fit: BoxFit.cover,
-                    image: AssetImage('images/profile.png'),
-                  ),
-                ),
-              ),
-            ],
-          ),
-          Padding(
-            padding: EdgeInsets.only(bottom: 270, left: 184),
-            child: CircleAvatar(
-              backgroundColor: Colors.black54,
-              child: IconButton(
-                icon: Icon(
-                  Icons.edit,
-                  color: Colors.white,
-                ),
-                onPressed: () {},
-              ),
+                SizedBox(height: 2,),
+                Text('User',style:TextStyle(color: Colors.grey,fontWeight: FontWeight.bold,fontSize: 18),
+                )
+              ],
             ),
-          )
+          ),
         ],
       ),
     );
   }
-}
-
-class HeaderCurvedContainer extends CustomPainter {
-  @override
-  void paint(Canvas canvas, Size size) {
-    Paint paint = Paint()..color = Color(0xff555555);
-    Path path = Path()
-      ..relativeLineTo(0, 150)
-      ..quadraticBezierTo(size.width / 2, 225, size.width, 150)
-      ..relativeLineTo(0, -150)
-      ..close();
-    canvas.drawPath(path, paint);
   }
-
-  @override
-  bool shouldRepaint(CustomPainter oldDelegate) => false;
-}
