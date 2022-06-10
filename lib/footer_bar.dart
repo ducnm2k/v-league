@@ -17,7 +17,7 @@ class _FooterBarState extends State<FooterBar> {
   final List _children = [
     HomeScreen(),
     ProfilePage(),
-    Staff_players(),
+    PlayerStatisticScreen(),
   ];
 
   void _onItemTapped(int index) {

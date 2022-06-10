@@ -1,146 +1,84 @@
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:google_sign_in/google_sign_in.dart';
-import 'package:v_leauge/screens/home_screen/home.dart';
-import 'package:v_leauge/screens/login_screen/compoment/page_title_bar.dart';
-import 'package:v_leauge/screens/login_screen/compoment/under_part.dart';
 
-
-import '../../../constants.dart';
-import '../../../widgets/rounded_button.dart';
-import '../../../widgets/rounded_input_field.dart';
-import '../../../widgets/rounded_password_field.dart';
-
-class Staff_players extends StatelessWidget {
-  const Staff_players({Key? key}) : super(key: key);
-
+class PlayerStatisticScreen extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
-    Firebase.initializeApp();
-    GoogleSignIn _googleSignIn = GoogleSignIn(
-        scopes: ['email']
-    );
-    Size size = MediaQuery.of(context).size;
-    return SafeArea(
-      child: Scaffold(
-        body: SizedBox(
-          width: size.width,
-          height: size.height,
-          child: SingleChildScrollView(
-            child: Stack(
-              children: [
-                Image.asset('assets/images/logo.jpg'),
-                const PageTitleBar(title: 'Login to your account'),
-                Padding(
-                    padding: const EdgeInsets.only(top: 320.0),
-                    child: Container(
-                      width: double.infinity,
-                      decoration: const BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(50),
-                          topRight: Radius.circular(50),
-                        ),
-                      ),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          const SizedBox(
-                            height: 15,
-                          ),
-                          // iconButton(context),
-                          ElevatedButton(
-                              onPressed: () async {
-                                try {
-                                  final newUser = await _googleSignIn.signIn();
-                                  final googleauth = await newUser!.authentication;
-                                  final creds = GoogleAuthProvider.credential(
-                                      accessToken: googleauth.accessToken,
-                                      idToken: googleauth.idToken
-                                  );
-                                  await FirebaseAuth.instance.signInWithCredential(creds).whenComplete(() => HomeScreen());
-                                } catch (e) {
-                                  print(e);
-                                }
-                                // Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen()));
-                              },
-                              child: Text("Login with google")),
+    // TODO: implement build
+    return MaterialApp(home: Scaffold(
 
-                          const SizedBox(
-                            height: 20,
-                          ),
-                          const Text(
-                            "or use your email account",
-                            style: TextStyle(
-                                color: Colors.green,
-                                fontFamily: 'OpenSans',
-                                fontSize: 13,
-                                fontWeight: FontWeight.w600),
-                          ),
-                          Form(
-                            child: Column(
-                              children: [
-                                const RoundedInputField(
-                                    hintText: "Email", icon: Icons.email),
-                                const RoundedPasswordField(),
-                                switchListTile(),
-                                RoundedButton(text: 'LOGIN', press: () {}),
-                                const SizedBox(
-                                  height: 10,
-                                ),
-                                UnderPart(
-                                  title: "Don't have an account?",
-                                  navigatorText: "Register here",
-                                  onTap: () {
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) =>
-                                            const Staff_players()));
-                                  },
-                                ),
-                                const SizedBox(
-                                  height: 20,
-                                ),
-                                const Text(
-                                  'Forgot password?',
-                                  style: TextStyle(
-                                      color: kPrimaryColor,
-                                      fontFamily: 'OpenSans',
-                                      fontWeight: FontWeight.w600,
-                                      fontSize: 13),
-                                ),
-                                const SizedBox(
-                                  height: 20,
-                                )
-                              ],
-                            ),
-                          )
-                        ],
-                      ),
-                    )),
-              ],
-            ),
-          ),
+      body: Container(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            _header(context),
+            _table(context),
+          ],
         ),
       ),
+    ),);
+  }
+
+  _header(context){
+    return Column(
+      children: [
+        Text(
+          "Player Stat",
+          style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+        ),
+      ],
     );
   }
 
-  switchListTile() {
-    return Padding(
-      padding: const EdgeInsets.only(left: 50, right: 40),
-      child: SwitchListTile(
-        dense: true,
-        title: const Text(
-          'Remember Me',
-          style: TextStyle(fontSize: 16, fontFamily: 'OpenSans'),
-        ),
-        value: true,
-        activeColor: kPrimaryColor,
-        onChanged: (val) {},
-      ),
+  _table(context){
+    return DataTable(
+        columns: [
+          DataColumn(label: Text(
+            "#",
+            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+          )),
+          DataColumn(label: Text(
+            "Name",
+            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+          )),
+          DataColumn(label: Text(
+            "FC",
+            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+          )),
+          DataColumn(label: Text(
+            "Goal",
+            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+          )),
+        ],
+        rows: [
+          DataRow(cells: [
+            DataCell(Text('1')),
+            DataCell(CupertinoButton(
+              onPressed: () {},
+              child: const Text('ABC'),
+            )),
+            DataCell(Text('AFC')),
+            DataCell(Text('14'))
+          ]),
+          DataRow(cells: [
+            DataCell(Text('2')),
+            DataCell(Text('BCD')),
+            DataCell(Text('AFC')),
+            DataCell(Text('12'))
+          ]),
+          DataRow(cells: [
+            DataCell(Text('3')),
+            DataCell(Text('CDE')),
+            DataCell(Text('AFC')),
+            DataCell(Text('8'))
+          ]),
+          DataRow(cells: [
+            DataCell(Text('4')),
+            DataCell(Text('DEF')),
+            DataCell(Text('AFC')),
+            DataCell(Text('8'))
+          ]),
+        ]
     );
   }
 }
