@@ -5,6 +5,7 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:v_leauge/footer_bar.dart';
 import 'package:v_leauge/screens/login_screen/compoment/page_title_bar.dart';
 import 'package:v_leauge/screens/login_screen/compoment/under_part.dart';
+import 'package:v_leauge/screens/sign_up_screen/sign_up_screen.dart';
 
 import '../../constants.dart';
 import '../../widgets/rounded_button.dart';
@@ -101,7 +102,7 @@ class LoginForm extends StatelessWidget {
                                         context,
                                         MaterialPageRoute(
                                             builder: (context) =>
-                                                const LoginForm()));
+                                                 SignUpScreen()));
                                   },
                                 ),
                                 const SizedBox(

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../login_screen/compoment/screen.dart';
+
 class SignUpScreen extends StatelessWidget
 {
   @override
@@ -99,7 +101,10 @@ class SignUpScreen extends StatelessWidget
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text("Already have an account?"),
-        TextButton(onPressed: (){}, child: Text("Login")),
+        TextButton(onPressed: (){
+          Navigator.push(context, MaterialPageRoute(builder: (context)=> LoginForm()));
+        }, child: Text("Login")),
+
       ],
     );
   }

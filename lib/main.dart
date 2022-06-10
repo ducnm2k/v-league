@@ -4,7 +4,6 @@ import 'package:v_leauge/footer_bar.dart';
 
 
 
-
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
@@ -22,7 +21,7 @@ class MyApp extends StatelessWidget {
 
         primarySwatch: Colors.blue,
       ),
-       home: ProfilePage(),
+       home: FooterBar(),
      // initialRoute: HomeScreen.routeName,
      // routes: routes,
     );

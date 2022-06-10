@@ -5,6 +5,7 @@ import 'package:v_leauge/screens/home_screen/home.dart';
 
 
 import '../../login_screen/login_screen.dart';
+import '../../sign_up_screen/sign_up_screen.dart';
 
 
 AppBar buildAppBar() {
@@ -27,26 +28,26 @@ AppBar buildAppBar() {
             PopupMenuItem(
               value: 1,
               child: Text("Sign In"),
-              // onTap: (){
-              //   WidgetsBinding.instance!.addPostFrameCallback((timeStamp) {
-              //     Navigator.push(
-              //         context,
-              //         MaterialPageRoute(
-              //             builder: (context) => HomeScreen()));
-              //   });
-              // },
+              onTap: (){
+                WidgetsBinding.instance!.addPostFrameCallback((timeStamp) {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => LoginForm()));
+                });
+              },
             ),
             PopupMenuItem(
               value: 2,
               child: Text("Sign Up"),
-              // onTap: (){
-              //   WidgetsBinding.instance!.addPostFrameCallback((timeStamp) {
-              //     Navigator.push(
-              //         context,
-              //         MaterialPageRoute(
-              //             builder: (context) => HomeScreen()));
-              //   });
-              // },
+              onTap: (){
+                WidgetsBinding.instance!.addPostFrameCallback((timeStamp) {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => SignUpScreen()));
+                });
+              },
             ),
             PopupMenuItem (
               value: 3,
