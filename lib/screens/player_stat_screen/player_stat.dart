@@ -1,12 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:v_leauge/screens/home_screen/compoment/appbar.dart';
 
 class PlayerStatisticScreen extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
     return MaterialApp(home: Scaffold(
-
+      appBar: buildAppBar(),
       body: Container(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,

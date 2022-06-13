@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
+
 import 'package:v_leauge/screens/sign_up_screen/sign_up_screen.dart';
+
+import 'package:v_leauge/screens/club_list_screen/clubs_list_screen.dart';
+import 'package:v_leauge/screens/schedule_screen/schedule_screen.dart';
+
 
 import 'screens/home_screen/home.dart';
 import 'screens/player_stat_screen/player_stat.dart';
@@ -17,9 +22,11 @@ class _FooterBarState extends State<FooterBar> {
   int _selectedIndex = 0;
   final List _children = [
     HomeScreen(),
-    ProfilePage(),
+    ScheduleScreen(),
     PlayerStatisticScreen(),
-    SignUpScreen(),
+    ClubsListScreen(),
+
+
   ];
   void _onItemTapped(int index) {
     setState(() {
