@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:v_leauge/screens/sign_up_screen/sign_up_screen.dart';
 
 import 'screens/home_screen/home.dart';
 import 'screens/player_stat_screen/player_stat.dart';
@@ -18,8 +19,8 @@ class _FooterBarState extends State<FooterBar> {
     HomeScreen(),
     ProfilePage(),
     PlayerStatisticScreen(),
+    SignUpScreen(),
   ];
-
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
@@ -52,10 +53,6 @@ class _FooterBarState extends State<FooterBar> {
             BottomNavigationBarItem(
               icon: Icon(Icons.inbox_sharp),
               label: 'Câu lạc Bộ',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.account_circle),
-              label: 'Hồ Sơ',
             ),
           ],
         ),
