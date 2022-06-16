@@ -30,93 +30,93 @@ class _BodyState extends State<Body> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-        child: SizedBox(
+        child: SingleChildScrollView(
           child: Column(
             children: <Widget>[
-              Expanded(
-                  child: PageView.builder(
-                    onPageChanged: (value){
-                      setState((){
-                        currentPage = value;
-                      });
-                    },
-                    itemCount: bodyData.length,
-                    itemBuilder: (context, index) => BodyContent(
-                      image: bodyData[index]["image"].toString(),
-                    ),
-                    ),
-              ),
-                 Expanded(
-                  flex: 2,
-                    child:SingleChildScrollView(
-                      child: SizedBox(
-                        child: Column(
-                          children: <Widget>[
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: List.generate(bodyData.length,
-                                    (index) => buildDot(index: index),
-                              ),
-                            ),
-                            SizedBox(
-                              height: 20,
-                            ),
-                            Text("LATEST RESULT",
-                              style: TextStyle(
-                                  fontSize: 30,
-                              ),
-                            ),
-                            Text("=========",
-                              style: TextStyle(color: Colors.green),
-                            ),
-                            Row(
-                              children: const <Widget>[
-                                Expanded(
-                                    child: FittedBox(
-                                      fit: BoxFit.contain,
-                                      child: Image(image: AssetImage("assets/images/logo_bfc.png"),
-                                        // height: 20,
-                                        // width: 20,
-                                      ),
-                                    ),
-                                ),
-                                Text("0", style: TextStyle(fontSize: 40),),
-                                Text(":", style: TextStyle(fontSize: 40),),
-                                Text("2", style: TextStyle(fontSize: 40),),
-                                Expanded(
-                                  child: FittedBox(
-                                    fit: BoxFit.contain,
-                                    child: Image(image: AssetImage("assets/images/logo_hanoi.png"),
-                                      height: 10,
-                                      width: 10,
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                            Text("NEWS",
-                              style: TextStyle(
-                                fontSize: 30,
-                              ),
-                            ),
-                            Text("=========",
-                              style: TextStyle(color: Colors.green),
-                            ),
-                            Row(
-                              children: <Widget>[
-                                Expanded(
-                                  child: FittedBox(
-                                  fit: BoxFit.contain,
-                                    child: Image(image: AssetImage("assets/images/logo_bfc.png"), height: 100, width: 100,),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                ),
+              // Expanded(
+              //     child: PageView.builder(
+              //       onPageChanged: (value){
+              //         setState((){
+              //           currentPage = value;
+              //         });
+              //       },
+              //       itemCount: bodyData.length,
+              //       itemBuilder: (context, index) => BodyContent(
+              //         image: bodyData[index]["image"].toString(),
+              //       ),
+              //       ),
+              // ),
+                //  Expanded(
+                //   flex: 2,
+                //     child:SingleChildScrollView(
+                //       child: SizedBox(
+                //         child: Column(
+                //           children: <Widget>[
+                //             Row(
+                //               mainAxisAlignment: MainAxisAlignment.center,
+                //               children: List.generate(bodyData.length,
+                //                     (index) => buildDot(index: index),
+                //               ),
+                //             ),
+                //             SizedBox(
+                //               height: 20,
+                //             ),
+                //             Text("LATEST RESULT",
+                //               style: TextStyle(
+                //                   fontSize: 30,
+                //               ),
+                //             ),
+                //             Text("=========",
+                //               style: TextStyle(color: Colors.green),
+                //             ),
+                //             Row(
+                //               children: const <Widget>[
+                //                 Expanded(
+                //                     child: FittedBox(
+                //                       fit: BoxFit.contain,
+                //                       child: Image(image: AssetImage("assets/images/logo_bfc.png"),
+                //                         // height: 20,
+                //                         // width: 20,
+                //                       ),
+                //                     ),
+                //                 ),
+                //                 Text("0", style: TextStyle(fontSize: 40),),
+                //                 Text(":", style: TextStyle(fontSize: 40),),
+                //                 Text("2", style: TextStyle(fontSize: 40),),
+                //                 Expanded(
+                //                   child: FittedBox(
+                //                     fit: BoxFit.contain,
+                //                     child: Image(image: AssetImage("assets/images/logo_hanoi.png"),
+                //                       height: 10,
+                //                       width: 10,
+                //                     ),
+                //                   ),
+                //                 ),
+                //               ],
+                //             ),
+                //             Text("NEWS",
+                //               style: TextStyle(
+                //                 fontSize: 30,
+                //               ),
+                //             ),
+                //             Text("=========",
+                //               style: TextStyle(color: Colors.green),
+                //             ),
+                //             Row(
+                //               children: <Widget>[
+                //                 Expanded(
+                //                   child: FittedBox(
+                //                   fit: BoxFit.contain,
+                //                     child: Image(image: AssetImage("assets/images/logo_bfc.png"), height: 100, width: 100,),
+                //                   ),
+                //                 ),
+                //               ],
+                //             ),
+                //           ],
+                //         ),
+                //       ),
+                //     ),
+                // ),
 
             ],
           ),
