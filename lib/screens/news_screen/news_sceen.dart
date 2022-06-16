@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-
-import '../../constants.dart';
 import 'models/listItem.dart';
 
 
@@ -15,9 +13,6 @@ class _NewsState extends State<News>
     with SingleTickerProviderStateMixin{
   
   List<ListItem> listTiles = [
-  // ListItem(loremIpsum.createWord(numWord: 6),),
-
-
 
   ];
   List<Tab> tabList = [
@@ -32,7 +27,7 @@ class _NewsState extends State<News>
   @override
   void initState(){
     super.initState();
-    tabController = TabController(length: tabList.length, vsync: this);
+    tabController = TabController(length: tabList.length, vsync:this);
   }
   @override
   void dispose(){

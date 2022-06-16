@@ -16,7 +16,6 @@ AppBar buildAppBar() {
     backgroundColor: Colors.green,
     centerTitle: true,
     automaticallyImplyLeading: true,
-
     actions: <Widget>[
       PopupMenuButton(
           icon: Icon(Icons.account_circle),
@@ -25,12 +24,12 @@ AppBar buildAppBar() {
               value: 0,
               child: Text("Profile"),
               onTap: (){
-                WidgetsBinding.instance!.addPostFrameCallback((timeStamp) {
+                // WidgetsBinding.instance!.addPostFrameCallback((timeStamp) {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
                           builder: (context) => PlayerStatisticScreen()));
-                });
+                //});
               },
             ),
             PopupMenuItem(

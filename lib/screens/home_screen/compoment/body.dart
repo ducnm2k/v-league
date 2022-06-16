@@ -1,6 +1,7 @@
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:v_leauge/screens/news_screen/news_sceen.dart';
 
 import 'bodycontent.dart';
 
@@ -45,84 +46,78 @@ class _BodyState extends State<Body> {
                     ),
                     ),
               ),
-              Expanded(
-                flex: 2,
-                  child:SingleChildScrollView(
-                    child: SizedBox(
-                      child: Column(
-                        children: <Widget>[
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: List.generate(bodyData.length,
-                                  (index) => buildDot(index: index),
+                 Expanded(
+                  flex: 2,
+                    child:SingleChildScrollView(
+                      child: SizedBox(
+                        child: Column(
+                          children: <Widget>[
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: List.generate(bodyData.length,
+                                    (index) => buildDot(index: index),
+                              ),
                             ),
-                          ),
-                          SizedBox(
-                            height: 20,
-                          ),
-                          Text("LATEST RESULT",
-                            style: TextStyle(
-                                fontSize: 30,
+                            SizedBox(
+                              height: 20,
                             ),
-                          ),
-                          Text("=========",
-                            style: TextStyle(color: Colors.green),
-                          ),
-                          Row(
-                            children: const <Widget>[
-                              Expanded(
+                            Text("LATEST RESULT",
+                              style: TextStyle(
+                                  fontSize: 30,
+                              ),
+                            ),
+                            Text("=========",
+                              style: TextStyle(color: Colors.green),
+                            ),
+                            Row(
+                              children: const <Widget>[
+                                Expanded(
+                                    child: FittedBox(
+                                      fit: BoxFit.contain,
+                                      child: Image(image: AssetImage("assets/images/logo_bfc.png"),
+                                        // height: 20,
+                                        // width: 20,
+                                      ),
+                                    ),
+                                ),
+                                Text("0", style: TextStyle(fontSize: 40),),
+                                Text(":", style: TextStyle(fontSize: 40),),
+                                Text("2", style: TextStyle(fontSize: 40),),
+                                Expanded(
                                   child: FittedBox(
                                     fit: BoxFit.contain,
-                                    child: Image(image: AssetImage("assets/images/logo_bfc.png"),
+                                    child: Image(image: AssetImage("assets/images/logo_hanoi.png"),
                                       height: 10,
                                       width: 10,
                                     ),
                                   ),
+                                ),
+                              ],
+                            ),
+                            Text("NEWS",
+                              style: TextStyle(
+                                fontSize: 30,
                               ),
-                              Text("0", style: TextStyle(fontSize: 40),),
-                              Text(":", style: TextStyle(fontSize: 40),),
-                              Text("2", style: TextStyle(fontSize: 40),),
-                              Expanded(
-                                child: FittedBox(
+                            ),
+                            Text("=========",
+                              style: TextStyle(color: Colors.green),
+                            ),
+                            Row(
+                              children: <Widget>[
+                                Expanded(
+                                  child: FittedBox(
                                   fit: BoxFit.contain,
-                                  child: Image(image: AssetImage("assets/images/logo_hanoi.png"),
-                                    height: 10,
-                                    width: 10,
+                                    child: Image(image: AssetImage("assets/images/logo_bfc.png"), height: 100, width: 100,),
                                   ),
                                 ),
-                              ),
-                            ],
-                          ),
-                          TextButton(
-                              style: TextButton.styleFrom(
-                                primary: Colors.green,
-                              ),
-                            onPressed: ( ){ },
-                            child: Text("Show more"),
-                          ),
-                          Text("NEWS",
-                            style: TextStyle(
-                              fontSize: 30,
+                              ],
                             ),
-                          ),
-                          Text("=========",
-                            style: TextStyle(color: Colors.green),
-                          ),
-                          Row(
-                            children: <Widget>[
-                              Expanded(
-                                child: FittedBox(
-                                fit: BoxFit.contain,
-                                  child: Image(image: AssetImage("assets/images/logo_bfc.png"), height: 100, width: 100,),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
-                  ),
-              ),
+                ),
+
             ],
           ),
         ),
