@@ -1,6 +1,5 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:v_leauge/network/api/model/player.dart';
 import 'package:v_leauge/network/api/model/player.model.dart';
 
 import '../../network/api/model/pagination_model.dart';
@@ -10,18 +9,6 @@ import '../../repositoty/implement/player.implement.dart';
 class PlayerStatisticScreen extends StatefulWidget {
   const PlayerStatisticScreen({Key? key}) : super(key: key);
 
-
-  // Future<List<Player>?> fetchOnboarding() async {
-  //   try {
-  //     Response response = await Dio().get("/api/players");
-  //     // if there is a key before array, use this : return (response.data['data'] as List).map((child)=> Children.fromJson(child)).toList();
-  //     return (response.data as List)
-  //         .map((x) => Player.fromJson(x))
-  //         .toList();
-  //   } catch (error, stacktrace) {
-  //     throw Exception("Exception occured: $error stackTrace: $stacktrace");
-  //   }
-  // }
 
   @override
   State<PlayerStatisticScreen> createState() => _PlayerStatisticScreenState();
@@ -52,8 +39,11 @@ class _PlayerStatisticScreenState extends State<PlayerStatisticScreen> with Sing
   future: fetchPlayer,
   builder: (context, snapshot) {
     if (snapshot.hasData) {
-      return Text(snapshot.data!.result[0].name);
-    } else if (snapshot.hasError) {
+      return Image.network(snapshot.data!.result[3].imageUrl);
+    }if(snapshot.hasData){
+      return Text(snapshot.data!.result[3].name);
+    }
+    else if (snapshot.hasError) {
       return Text('${snapshot.error}');
     }
 
@@ -113,34 +103,7 @@ class _PlayerStatisticScreenState extends State<PlayerStatisticScreen> with Sing
 // class PlayerStatisticScreen extends StatefulWidget {
 //   const PlayerStatisticScreen({Key? key}) : super(key: key);
 //
-//   Future<List<Player>> fetchPlayer() async {
-//     try {
-//       Response response = await Dio().get('https://vlg-api-reserve.azurewebsites.net/api/players');
-//       if (response.statusCode == 200) {
-//         var getUsersData = response.data as List;
-//         var listPlayer = getUsersData.map((i) => Player.fromJSON(i)).toList();
-//         return listPlayer;
-//       } else {
-//     throw Exception("Fail to load");
-//     }
-//     } catch (e) {
-//     print(e);
-//     }
-//   }
-//
-//
-//   @override
-//   State<PlayerStatisticScreen> createState() => _PlayerStatisticScreenState();
-// }
-//
-// class _PlayerStatisticScreenState extends State<PlayerStatisticScreen> {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container();
-//   }
-// }
-//
-//
+
 // // class PlayerStatisticScreen extends StatelessWidget{
 // //   @override
 // //   Widget build(BuildContext context) {

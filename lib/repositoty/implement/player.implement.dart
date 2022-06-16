@@ -11,7 +11,7 @@ class PlayerImplement implements IPlayerrepository{
   @override
   Future<PaginationModel<PlayerModel>> getPlayers() async {
     final respone = await restAPI.get<PaginationModel<PlayerModel>>('/api/players') ;
-    final data = PaginationModel.fromJson(respone, PlayerModel.fromJson) as PaginationModel<PlayerModel>;
+    final data = PaginationModel<PlayerModel>.fromJson(respone, PlayerModel.fromJson);
     return data;
   }
 

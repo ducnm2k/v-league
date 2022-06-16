@@ -1,24 +1,6 @@
-import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../../../network/api/model/player.dart';
-
-
-// Future<List<PlayerModel>?> fetchUsers() async {
-//   try {
-//     Response response = await Dio().get('');
-//     if (response.statusCode == 200) {
-//       var getUsersData = response.data as List;
-//       var listUsers = getUsersData.map((i) => PlayerModel.fromJSON(i)).toList();
-//       return listUsers;
-//     } else {
-//   throw Exception("‘Failed to load users’");
-//   }
-//   } catch (e) {
-//   print(e);
-//   }
-// }
 
 class GetListPlayer extends StatefulWidget {
   const GetListPlayer({Key? key}) : super(key: key);
