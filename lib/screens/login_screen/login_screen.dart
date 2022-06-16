@@ -6,11 +6,12 @@ import 'package:v_leauge/footer_bar.dart';
 import 'package:v_leauge/screens/login_screen/compoment/page_title_bar.dart';
 import 'package:v_leauge/screens/login_screen/compoment/under_part.dart';
 import 'package:v_leauge/screens/sign_up_screen/sign_up_screen.dart';
+import 'package:v_leauge/ui/widgets/rounded_input_field.dart';
+import 'package:v_leauge/ui/widgets/rounded_password_field.dart';
 
 import '../../constants.dart';
-import '../../widgets/rounded_button.dart';
-import '../../widgets/rounded_input_field.dart';
-import '../../widgets/rounded_password_field.dart';
+import '../../ui/widgets/widgets.dart';
+
 
 class LoginForm extends StatelessWidget {
   const LoginForm({Key? key}) : super(key: key);

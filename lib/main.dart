@@ -4,7 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:v_leauge/footer_bar.dart';
 import 'package:v_leauge/screens/home_screen/home.dart';
 import 'package:v_leauge/screens/login_screen/login_screen.dart';
+import 'package:v_leauge/screens/news_screen/news_sceen.dart';
 import 'package:v_leauge/services/local-notification_service.dart';
+
+import 'screens/player_stat_screen/player_stat.dart';
 
 Future<void> backgroundHandler(RemoteMessage message) async {
   print(message.data.toString());
