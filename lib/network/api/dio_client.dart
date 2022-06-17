@@ -1,7 +1,6 @@
 import 'package:dio/dio.dart';
 
-// // THứ 6 call API KO Được thì bị thẻ zàng
-  class DioClient {
+class DioClient {
   Dio configDio() {
     var options = BaseOptions(
       baseUrl: 'https://vlg-api-reserve.azurewebsites.net',
@@ -29,57 +28,7 @@ import 'package:dio/dio.dart';
       // you can resolve a Response object eg: handler.resolve(response).
     }));
     return dio;
-    
   }
-  Dio get getDio => configDio();
-//
-// // Put:-----------------------------------------------------------------------
-//   Future<Response> put(
-//       String url, {
-//         data,
-//         Map<String, dynamic>? queryParameters,
-//         Options? options,
-//         CancelToken? cancelToken,
-//         ProgressCallback? onSendProgress,
-//         ProgressCallback? onReceiveProgress,
-//       }) async {
-//     try {
-//       final Response response = await _dio.put(
-//         url,
-//         data: data,
-//         queryParameters: queryParameters,
-//         options: options,
-//         cancelToken: cancelToken,
-//         onSendProgress: onSendProgress,
-//         onReceiveProgress: onReceiveProgress,
-//       );
-//       return response;
-//     } catch (e) {
-//       rethrow;
-//     }
-//   }
-// // Delete:--------------------------------------------------------------------
-//   Future<dynamic> delete(
-//       String url, {
-//         data,
-//         Map<String, dynamic>? queryParameters,
-//         Options? options,
-//         CancelToken? cancelToken,
-//         ProgressCallback? onSendProgress,
-//         ProgressCallback? onReceiveProgress,
-//       }) async {
-//     try {
-//       final Response response = await _dio.delete(
-//         url,
-//         data: data,
-//         queryParameters: queryParameters,
-//         options: options,
-//         cancelToken: cancelToken,
-//       );
-//       return response.data;
-//     } catch (e) {
-//       rethrow;
-//     }
-//   }
 
-  }
+  Dio get getDio => configDio();
+}
