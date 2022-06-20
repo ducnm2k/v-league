@@ -19,8 +19,7 @@ class _GetListUserState extends State<GetListPlayer> {
 
 DataTable dataTable(List<PlayerModel> list) {
   return DataTable(
-    dataRowHeight: 64,
-
+    dataRowHeight: 128,
       columns: [
         DataColumn(label: Text(
           "Name",
@@ -40,7 +39,6 @@ DataTable dataTable(List<PlayerModel> list) {
         )),
       ],
       rows:
-
       list.map(
         ((element) => DataRow(
           cells: <DataCell>[
@@ -49,7 +47,8 @@ DataTable dataTable(List<PlayerModel> list) {
                 FittedBox
                   (
                     fit: BoxFit.contain,
-                    child: Image.network(element.imageUrl)
+                    child:
+                    Image.network(element.imageUrl)
                 )
             ),
             DataCell(Text('')),
