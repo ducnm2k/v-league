@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:v_leauge/network/api/model/player.model.dart';
 
 
 class GetListPlayer extends StatefulWidget {
@@ -16,15 +17,17 @@ class _GetListUserState extends State<GetListPlayer> {
   }
 }
 
-DataTable dataTable() {
+DataTable dataTable(List<PlayerModel> list) {
   return DataTable(
+    dataRowHeight: 64,
+
       columns: [
         DataColumn(label: Text(
-          "#",
+          "Name",
           style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
         )),
         DataColumn(label: Text(
-          "Name",
+          "Image",
           style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
         )),
         DataColumn(label: Text(
@@ -36,34 +39,23 @@ DataTable dataTable() {
           style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
         )),
       ],
-      rows: [
-        DataRow(cells: [
-          DataCell(Text('1')),
-          DataCell(CupertinoButton(
-            onPressed: () {},
-            child: const Text('ABC'),
-          )),
-          DataCell(Text('AFC')),
-          DataCell(Text('14'))
-        ]),
-        DataRow(cells: [
-          DataCell(Text('2')),
-          DataCell(Text('BCD')),
-          DataCell(Text('AFC')),
-          DataCell(Text('12'))
-        ]),
-        DataRow(cells: [
-          DataCell(Text('3')),
-          DataCell(Text('CDE')),
-          DataCell(Text('AFC')),
-          DataCell(Text('8'))
-        ]),
-        DataRow(cells: [
-          DataCell(Text('4')),
-          DataCell(Text('DEF')),
-          DataCell(Text('AFC')),
-          DataCell(Text('8'))
-        ]),
-      ]
+      rows:
+
+      list.map(
+        ((element) => DataRow(
+          cells: <DataCell>[
+            DataCell(Text(element.name)),
+            DataCell(
+                FittedBox
+                  (
+                    fit: BoxFit.contain,
+                    child: Image.network(element.imageUrl)
+                )
+            ),
+            DataCell(Text('')),
+            DataCell(Text('')),
+          ],
+        )),
+      ).toList(),
   );
 }
