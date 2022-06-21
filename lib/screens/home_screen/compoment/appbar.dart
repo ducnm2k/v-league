@@ -14,6 +14,11 @@ AppBar buildAppBar() {
   return AppBar(
     title: Text("V LEAGUES"),
     backgroundColor: Colors.green,
+    shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(
+          bottom: Radius.circular(10),
+        ),
+    ),
     centerTitle: true,
     automaticallyImplyLeading: true,
     actions: <Widget>[
