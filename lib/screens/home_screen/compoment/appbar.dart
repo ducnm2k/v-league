@@ -1,7 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:v_leauge/screens/home_screen/home.dart';
 import 'package:v_leauge/screens/player_stat_screen/player_stat.dart';
 
 
@@ -29,12 +28,12 @@ AppBar buildAppBar() {
               value: 0,
               child: Text("Profile"),
               onTap: (){
-                // WidgetsBinding.instance!.addPostFrameCallback((timeStamp) {
+                 WidgetsBinding.instance!.addPostFrameCallback((timeStamp) {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
                           builder: (context) => PlayerStatisticScreen()));
-                //});
+                });
               },
             ),
             PopupMenuItem(

@@ -39,7 +39,7 @@ class _PlayerStatisticScreenState extends State<PlayerStatisticScreen>
               print( 'number of players:'  + snapshot.data!.result.length.toString() );
               return Container(
                 padding: EdgeInsets.all(10),
-                child:SingleChildScrollView(
+                child: SingleChildScrollView(
                           child: dataTable(snapshot.data!.result)
                       ),
               );
@@ -47,12 +47,10 @@ class _PlayerStatisticScreenState extends State<PlayerStatisticScreen>
             else if (snapshot.hasError) {
               return Text('${snapshot.error}');
             }
-
             // By default, show a loading spinner.
             return const CircularProgressIndicator();
           },
         )
-
     );
   }
 }

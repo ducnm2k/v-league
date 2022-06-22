@@ -29,6 +29,5 @@ class DioClient {
     }));
     return dio;
   }
-
   Dio get getDio => configDio();
 }

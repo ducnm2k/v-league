@@ -15,7 +15,7 @@ class Body extends StatefulWidget {
 class _BodyState extends State<Body> {
   int currentPage = 0;
   final ScrollController controllerOne = ScrollController();
-  List<Map<String, String>> bodyData =[
+  List<Map<String, String>> bodyImage =[
     {
       "image": "assets/images/sanbong.png",
     },
@@ -25,6 +25,9 @@ class _BodyState extends State<Body> {
     {
       "image": "assets/images/sanbong_2.png",
     },
+  ];
+  List <Map<String, String>> bodyResult = [
+
   ];
   @override
   Widget build(BuildContext context) {
@@ -39,9 +42,9 @@ class _BodyState extends State<Body> {
                     currentPage = value;
                   });
                 },
-                itemCount: bodyData.length,
+                itemCount: bodyImage.length,
                 itemBuilder: (context, index) => BodyContent(
-                  image: bodyData[index]["image"].toString(),
+                  image: bodyImage[index]["image"].toString(),
                 ),
               ),
             ),
@@ -53,29 +56,30 @@ class _BodyState extends State<Body> {
                     children: <Widget>[
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
-                        children: List.generate(bodyData.length,
+                        children: List.generate(bodyImage.length,
                               (index) => buildDot(index: index),
                         ),
                       ),
                       SizedBox(
                         height: 20,
                       ),
-                      Text("LATEST RESULT",
-                        style: TextStyle(
-                          fontSize: 30,
-                        ),
+                      Text("Kết Quả",
+                      style: TextStyle(
+                        fontSize: 30,
+                      ),
                       ),
                       Text("=========",
                         style: TextStyle(color: Colors.green),
                       ),
                       Row(
                         children: const <Widget>[
+                          //Icon(FontAwesome.address_book),
                           Expanded(
                             child: FittedBox(
                               fit: BoxFit.contain,
                               child: Image(image: AssetImage("assets/images/logo_bfc.png"),
-                                height: 10,
-                                width: 10,
+                                height: 100,
+                                width: 100,
                               ),
                             ),
                           ),
@@ -86,37 +90,20 @@ class _BodyState extends State<Body> {
                             child: FittedBox(
                               fit: BoxFit.contain,
                               child: Image(image: AssetImage("assets/images/logo_hanoi.png"),
-                                height: 10,
-                                width: 10,
+                                height: 100,
+                                width: 100,
                               ),
                             ),
                           ),
                         ],
                       ),
-                      TextButton(
-                        style: TextButton.styleFrom(
-                          primary: Colors.green,
-                        ),
-                        onPressed: ( ){ },
-                        child: Text("Show more"),
+                      SizedBox(
+                        height: 30,
                       ),
-                      Text("NEWS",
+                      Text("Lịch Thi Đấu",
                         style: TextStyle(
                           fontSize: 30,
                         ),
-                      ),
-                      Text("=========",
-                        style: TextStyle(color: Colors.green),
-                      ),
-                      Row(
-                        children: <Widget>[
-                          Expanded(
-                            child: FittedBox(
-                              fit: BoxFit.contain,
-                              child: Image(image: AssetImage("assets/images/logo_bfc.png"), height: 100, width: 100,),
-                            ),
-                          ),
-                        ],
                       ),
                     ],
                   ),

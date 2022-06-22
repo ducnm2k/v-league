@@ -16,5 +16,4 @@ class PlayerModel {
         imageUrl: json["imageURL"],
         dateOfBirth: DateTime.parse(json["dateOfBirth"]),
     );
-
 }

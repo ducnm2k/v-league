@@ -14,7 +14,7 @@ class BodyContent extends StatelessWidget {
         Image.asset(
           image,
           width: MediaQuery.of(context).size.width,
-          height: 220,
+          height: 200,
           fit: BoxFit.fill,
         ),
       ],

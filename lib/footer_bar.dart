@@ -1,14 +1,10 @@
 import 'package:flutter/material.dart';
-
-import 'package:v_leauge/screens/sign_up_screen/sign_up_screen.dart';
-
 import 'package:v_leauge/screens/club_list_screen/clubs_list_screen.dart';
 import 'package:v_leauge/screens/schedule_screen/schedule_screen.dart';
 
 
 import 'screens/home_screen/home.dart';
 import 'screens/player_stat_screen/player_stat.dart';
-import 'screens/profile_screen/profilepage.dart';
 
 
 class FooterBar extends StatefulWidget {
@@ -33,12 +29,12 @@ class _FooterBarState extends State<FooterBar> {
       _selectedIndex = index;
     });
   }
-
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: _children[_selectedIndex],
+        body: _children[_selectedIndex],//Notification(),
+        //extendBody: ,
         bottomNavigationBar: BottomNavigationBar(
           currentIndex: _selectedIndex,
           selectedItemColor: Colors.green.shade800,

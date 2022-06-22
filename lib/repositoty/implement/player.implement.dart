@@ -1,5 +1,3 @@
-import 'package:dio/dio.dart';
-import 'package:v_leauge/network/api/dio_client.dart';
 import 'package:v_leauge/network/api/model/player.model.dart';
 import 'package:v_leauge/network/api/model/pagination_model.dart';
 import 'package:v_leauge/repositoty/interface/player.interface.dart';
