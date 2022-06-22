@@ -1,4 +1,3 @@
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
@@ -7,7 +6,6 @@ import 'bodycontent.dart';
 class Body extends StatefulWidget {
   Body({Key? key}) : super(key: key);
 
-
   @override
   State<Body> createState() => _BodyState();
 }
@@ -15,7 +13,7 @@ class Body extends StatefulWidget {
 class _BodyState extends State<Body> {
   int currentPage = 0;
   final ScrollController controllerOne = ScrollController();
-  List<Map<String, String>> bodyImage =[
+  List<Map<String, String>> bodyImage = [
     {
       "image": "assets/images/sanbong.png",
     },
@@ -26,9 +24,8 @@ class _BodyState extends State<Body> {
       "image": "assets/images/sanbong_2.png",
     },
   ];
-  List <Map<String, String>> bodyResult = [
+  List<Map<String, String>> bodyResult = [];
 
-  ];
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -37,8 +34,8 @@ class _BodyState extends State<Body> {
           children: <Widget>[
             Expanded(
               child: PageView.builder(
-                onPageChanged: (value){
-                  setState((){
+                onPageChanged: (value) {
+                  setState(() {
                     currentPage = value;
                   });
                 },
@@ -50,61 +47,63 @@ class _BodyState extends State<Body> {
             ),
             Expanded(
               flex: 2,
-              child:SingleChildScrollView(
+              child: SingleChildScrollView(
                 child: SizedBox(
                   child: Column(
                     children: <Widget>[
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
-                        children: List.generate(bodyImage.length,
-                              (index) => buildDot(index: index),
+                        children: List.generate(
+                          bodyImage.length,
+                          (index) => buildDot(index: index),
                         ),
                       ),
                       SizedBox(
                         height: 20,
                       ),
-                      Text("Kết Quả",
-                      style: TextStyle(
-                        fontSize: 30,
+                      Text(
+                        "Kết Quả",
+                        style: TextStyle(
+                          fontSize: 40,
+                        ),
                       ),
-                      ),
-                      Text("=========",
+                      Text(
+                        "=========",
                         style: TextStyle(color: Colors.green),
-                      ),
-                      Row(
-                        children: const <Widget>[
-                          //Icon(FontAwesome.address_book),
-                          Expanded(
-                            child: FittedBox(
-                              fit: BoxFit.contain,
-                              child: Image(image: AssetImage("assets/images/logo_bfc.png"),
-                                height: 100,
-                                width: 100,
-                              ),
-                            ),
-                          ),
-                          Text("0", style: TextStyle(fontSize: 40),),
-                          Text(":", style: TextStyle(fontSize: 40),),
-                          Text("2", style: TextStyle(fontSize: 40),),
-                          Expanded(
-                            child: FittedBox(
-                              fit: BoxFit.contain,
-                              child: Image(image: AssetImage("assets/images/logo_hanoi.png"),
-                                height: 100,
-                                width: 100,
-                              ),
-                            ),
-                          ),
-                        ],
                       ),
                       SizedBox(
                         height: 30,
                       ),
-                      Text("Lịch Thi Đấu",
-                        style: TextStyle(
-                          fontSize: 30,
-                        ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Image.asset('assets/images/logo_bfc.png', height: 100, width: 100,),
+                          SizedBox(
+                            width: 20,
+                          ),
+                          Text('0',
+                          style: TextStyle( fontSize: 30),
+                          ),
+                          Text(':',
+                            style: TextStyle( fontSize: 30),
+                          ),
+                          Text('0',
+                            style: TextStyle( fontSize: 30),
+                          ),
+                          SizedBox(
+                            width: 20,
+                          ),
+                          Image.asset('assets/images/logo_bfc.png', height: 100, width: 100,),
+                        ],
                       ),
+                      SizedBox(
+                        height: 50,
+                      ),
+                      Text('Lịch Thi Đấu',
+                        style: TextStyle( fontSize: 40),
+                      ),
+
+                      
                     ],
                   ),
                 ),
@@ -120,7 +119,7 @@ class _BodyState extends State<Body> {
     return Container(
       margin: EdgeInsets.only(right: 5),
       height: 6,
-      width: currentPage == index ? 15 :6,
+      width: currentPage == index ? 15 : 6,
       decoration: BoxDecoration(
         color: Colors.green,
         borderRadius: BorderRadius.circular(3),
@@ -128,4 +127,3 @@ class _BodyState extends State<Body> {
     );
   }
 }
-

@@ -28,7 +28,7 @@ AppBar buildAppBar() {
               value: 0,
               child: Text("Profile"),
               onTap: (){
-                 WidgetsBinding.instance!.addPostFrameCallback((timeStamp) {
+                 WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
@@ -40,7 +40,7 @@ AppBar buildAppBar() {
               value: 1,
               child: Text("Sign In"),
               onTap: (){
-                WidgetsBinding.instance!.addPostFrameCallback((timeStamp) {
+                WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
                   Navigator.push(
                       context,
                       MaterialPageRoute(

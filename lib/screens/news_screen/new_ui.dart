@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../home_screen/compoment/appbar.dart';
-
-
 class NewsUI extends StatelessWidget {
   const NewsUI({Key? key}) : super(key: key);
 
@@ -12,8 +9,6 @@ class NewsUI extends StatelessWidget {
 
     return SafeArea(
       child: Scaffold(
-        appBar: buildAppBar(
-        ),
         body:
         Card(
           shape: RoundedRectangleBorder(
@@ -23,17 +18,11 @@ class NewsUI extends StatelessWidget {
             children: <Widget>[
               Column(
                 children: <Widget>[
-                  Container(
-                    height: 200.0,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.only(topLeft:
-                      Radius.circular(10.0), topRight: Radius.circular(10.0),),
-                      //image: DecorationImage(
-                      //image: Image.asset("assets/images/DinhTrong.jpg"),
-                      // fit: BoxFit.cover,
-
-                      // )
-                    ),
+                  Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Image.asset('assets/images/logo_bfc.png', height: 100, width: 100,),
+                      ],
                   ),
                   Padding(
                     padding: const EdgeInsets.all(16.0),
