@@ -5,28 +5,36 @@ class NewsUI extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Color bgColor = Color(0xffF3F3F3);
 
     return SafeArea(
       child: Scaffold(
         body:
         Card(
+          elevation: 4.0,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10.0),
           ),
           child: Stack(
             children: <Widget>[
+              Container(
+                width: 150,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(12),
+                ),
+
+              ),
               Column(
                 children: <Widget>[
                   Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Image.asset('assets/images/logo_bfc.png', height: 100, width: 100,),
-                      ],
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Image.asset('assets/images/cuutuyenthu.jpg', height: 100, width: 100,),
+                    ],
                   ),
                   Padding(
                     padding: const EdgeInsets.all(16.0),
-                    child: Text("Liverpool",style: TextStyle(
+                    child: Text("Cựu tuyển thủ U23 Việt Nam có bến đỗ đầy bất ngờ sau khi chia tay ĐKVĐ V-League",style: TextStyle(
                       color: Colors.black,
                       fontWeight: FontWeight.bold,
                       fontSize: 20.0,
@@ -44,8 +52,36 @@ class NewsUI extends StatelessWidget {
                       ],
                     ),
                   ),
+                  const SizedBox(height: 16.0),
+                  Row(mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Image.asset('assets/images/hungthan823.jpg', height: 100, width: 100,),
+                    ],
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Text("'Hung thần' của U23 Thái Lan được thi đấu ở V-League",style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20.0,
+                    ),
+                    ),
+                  ),
+                  Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                      child: Row(
+                        children: <Widget>[
+                          Text("The day before, 9: 02 PM", style: TextStyle(
+                            color: Colors.grey,
+                            fontSize: 14.0,
+                          ),)
+                        ],
+
+                      )
+                  ),
                 ],
-              )
+
+              ),
             ],
           ),
         ),

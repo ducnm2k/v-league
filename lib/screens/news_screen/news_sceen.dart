@@ -17,7 +17,7 @@ class _NewsState extends State<News>
     Tab(
       child: Text("Trang chủ"),),
     Tab(
-      child: Text("tin tức"),),
+      child: Text("Tin Tức"),),
   ];
   static const List<Widget> _views = [
     Center(
