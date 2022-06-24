@@ -1,90 +1,60 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:v_leauge/repositoty/implement/club.implement.dart';
 import 'package:v_leauge/screens/home_screen/compoment/appbar.dart';
 
-class ClubsListScreen extends StatelessWidget{
+import '../../network/api/model/club.model.dart';
+import '../../network/api/model/pagination_model.dart';
+import 'component/dtbl_club.dart';
+
+class ClubsListScreen extends StatefulWidget{
+  const ClubsListScreen({Key? key}) : super(key: key);
+
+  @override
+  State<ClubsListScreen> createState() => _ClubsListScreenState();
+}
+
+class _ClubsListScreenState extends State<ClubsListScreen> with SingleTickerProviderStateMixin
+{
+  late Future<PaginationModel<ClubModel>> fetchClub;
+
+  @override
+  void initState() {
+    super.initState();
+    fetchClub = ClubImplement().getClubs();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-    return SafeArea(
-        child: Scaffold(
-          appBar: buildAppBar(),
-          body: Container(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                _header(context),
-                _table(context),
-              ],
-            ),
-          ),
-        )
+    return Scaffold(
+      appBar: buildAppBar(),
+    body: FutureBuilder<PaginationModel<ClubModel>>(
+      future: fetchClub,
+        builder: (context, snapshot)
+        {
+          if (snapshot.hasData)
+            {
+              print( 'number of clubs:'  + snapshot.data!.result.length.toString() );
+              return Container(
+                padding: EdgeInsets.all(10),
+                child: SingleChildScrollView(
+                    // child: dataTable()
+                ),
+              );
+            }
+          else if (snapshot.hasError) {
+            return Text('${snapshot.error}');
+          }
+          return const CircularProgressIndicator();
+        }
+
+    ),
     );
   }
 
-}
-
-_header(context){
-  return Column(
-    children: [
-      Text(
-        "CÂU LẠC BỘ",
-        style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
-      ),
-    ],
-  );
-}
-
-_table(context){
-  return DataTable(
-    dataRowHeight: 128,
-      columns: [
-        DataColumn(label: Text(
-          "#"
-        )),
-        DataColumn(label: Text(
-            "Logo"
-        )),
-        DataColumn(label: Text(
-            "Tên CLB"
-        )),
-        DataColumn(label: Text(
-            "Sân"
-        )),
-      ],
-      rows: [
-        DataRow(cells: [
-          DataCell(Text('1')),
-          DataCell(FittedBox(
-            fit: BoxFit.contain,
-            child: Image(
-                image: AssetImage("assets/images/logo_bfc.png"),
-              height: 128,
-              width: 128,
-            ),
-          )),
-          DataCell(CupertinoButton(
-            onPressed: () {},
-            child: const Text('BFC'),
-          )),
-          DataCell(Text('...')),
-        ]),
-        DataRow(cells: [
-          DataCell(Text('1')),
-          DataCell(FittedBox(
-            fit: BoxFit.contain,
-            child: Image(
-              image: AssetImage("assets/images/logo_hanoi.png"),
-              height: 128,
-              width: 128,
-            ),
-          )),
-          DataCell(CupertinoButton(
-            onPressed: () {},
-            child: const Text('HFC'),
-          )),
-          DataCell(Text('...')),
-        ]),
-      ]
-  );
 }

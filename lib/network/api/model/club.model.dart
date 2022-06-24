@@ -39,4 +39,12 @@ class Stadium {
     required this.imageUrl,
   });
 
+  factory Stadium.fromJson(Map<String, dynamic> json) => Stadium
+    (
+      id: json["id"],
+      name: json["name"],
+      address: json["address"],
+      imageUrl: json["imageUrl"],
+  );
+
 }
