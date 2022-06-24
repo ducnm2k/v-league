@@ -7,7 +7,6 @@ import 'package:v_leauge/screens/player_stat_screen/player_stat.dart';
 import '../../login_screen/login_screen.dart';
 import '../../sign_up_screen/sign_up_screen.dart';
 
-
 AppBar buildAppBar() {
   GoogleSignIn _googleSignin = GoogleSignIn();
   return AppBar(

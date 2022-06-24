@@ -21,8 +21,6 @@ class _FooterBarState extends State<FooterBar> {
     ScheduleScreen(),
     PlayerStatisticScreen(),
     ClubsListScreen(),
-
-
   ];
   void _onItemTapped(int index) {
     setState(() {
@@ -33,8 +31,7 @@ class _FooterBarState extends State<FooterBar> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: _children[_selectedIndex],//Notification(),
-        //extendBody: ,
+        body: _children[_selectedIndex],
         bottomNavigationBar: BottomNavigationBar(
           currentIndex: _selectedIndex,
           selectedItemColor: Colors.green.shade800,
