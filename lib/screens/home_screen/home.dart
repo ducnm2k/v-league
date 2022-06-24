@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-
-
 import '../news_screen/news_sceen.dart';
 import 'compoment/appbar.dart';
 
@@ -23,6 +21,7 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Scaffold(
       appBar: buildAppBar(),
           body: News(),
+
     ));//);
   }
 }

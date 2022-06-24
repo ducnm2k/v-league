@@ -3,6 +3,7 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:v_leauge/footer_bar.dart';
 import 'package:v_leauge/screens/login_screen/login_screen.dart';
+import 'package:v_leauge/services/local-notification_service.dart';
 
 Future<void> backgroundHandler(RemoteMessage message) async {
   print(message.data.toString());
@@ -27,12 +28,63 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
 
-      //home: MyHomePage(title: 'Flutter Demo Home Page'),
-      home: FooterBar(),
+      home: Notification(),
       routes: {
         "red": (_) => FooterBar(),
         "green": (_) => LoginForm(),
       },
+    );
+  }
+}
+class Notification extends StatefulWidget {
+  const Notification({Key? key}) : super(key: key);
+
+  @override
+  _Notification createState() => _Notification();
+}
+
+class _Notification extends State<Notification> {
+  late final String title;
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    LocalnotificationService.initialize(context);
+
+    ///gives you the message on which user taps
+    ///and it opened the app from terminated state
+    FirebaseMessaging.instance.getInitialMessage().then((message) {
+      if (message != null) {
+        final routeFromMessage = message.data["route"];
+        Navigator.of(context).pushNamed(routeFromMessage);
+      }
+    });
+
+    ///forground work
+    FirebaseMessaging.onMessage.listen((message) {
+      if (message.notification != null) {
+        print(message.notification!.body);
+        print(message.notification!.title);
+      }
+
+      LocalnotificationService.display(message);
+    });
+
+    ///When the app is in background but opened and user taps
+    ///on the notification
+    FirebaseMessaging.onMessageOpenedApp.listen((message) {
+      final routeFromMessage = message.data["route"];
+      Navigator.of(context).pushNamed(routeFromMessage);
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return SafeArea(
+      child: Scaffold(
+        body: FooterBar(),
+      ),
     );
   }
 }
