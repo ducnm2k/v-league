@@ -82,7 +82,8 @@ class NewsUI extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 13.0),
-          Row(mainAxisAlignment: MainAxisAlignment.center,
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Image.asset(
                 'assets/images/nguoihungu23.jpg', height: 100, width: 350,),
@@ -102,7 +103,7 @@ class NewsUI extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 13.0),
             child: Row(
               children: <Widget>[
-                Text("The day before, 9: 02 PM", style: TextStyle(
+                Text("Three day ago, 8: 02 PM", style: TextStyle(
                   color: Colors.grey,
                   fontSize: 12.0,
                 ),
