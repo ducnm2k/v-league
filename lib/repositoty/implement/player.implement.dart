@@ -12,11 +12,4 @@ class PlayerImplement implements IPlayerrepository{
     final data = PaginationModel<PlayerModel>.fromJson(respone, PlayerModel.fromJson);
     return data;
   }
-  @override
-  Future<PaginationModel<PlayerModel>> getPClups() async {
-    final respone = await restAPI.get<PaginationModel<PlayerModel>>('/api/clubs') ;
-    final data = PaginationModel<PlayerModel>.fromJson(respone, PlayerModel.fromJson);
-    return data;
-  }
-
 }

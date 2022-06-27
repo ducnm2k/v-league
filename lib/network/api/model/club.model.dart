@@ -1,11 +1,4 @@
 class ClubModel {
-  int id;
-  String name;
-  String imageUrl;
-  String headQuarter;
-  int stadiumId;
-  Stadium stadium;
-
   ClubModel({
     required this.id,
     required this.name,
@@ -15,23 +8,24 @@ class ClubModel {
     required this.stadium,
   });
 
-  factory ClubModel.fromJson(Map<String, dynamic> json) => ClubModel
-    (
-      id: json["id"],
-      name: json["name"],
-      imageUrl: json["imageUrl"],
-      headQuarter: json["headQuarter"],
-      stadiumId: json["stadiumId"],
-      stadium: json["stadium"]
-  );
+  int id;
+  String name;
+  String imageUrl;
+  String headQuarter;
+  int stadiumId;
+  Stadium stadium;
+
+  factory ClubModel.fromJson(Map<String, dynamic> json) => ClubModel(
+        id: json["id"],
+        name: json["name"],
+        imageUrl: json["imageURL"],
+        headQuarter: json["headQuarter"],
+        stadiumId: json["stadiumID"],
+        stadium: Stadium.fromJson(json["stadium"]),
+      );
 }
 
 class Stadium {
-  int id;
-  String name;
-  String address;
-  String imageUrl;
-
   Stadium({
     required this.id,
     required this.name,
@@ -39,12 +33,15 @@ class Stadium {
     required this.imageUrl,
   });
 
-  factory Stadium.fromJson(Map<String, dynamic> json) => Stadium
-    (
-      id: json["id"],
-      name: json["name"],
-      address: json["address"],
-      imageUrl: json["imageUrl"],
-  );
+  int id;
+  String name;
+  String address;
+  String imageUrl;
 
+  factory Stadium.fromJson(Map<String, dynamic> json) => Stadium(
+        id: json["id"],
+        name: json["name"],
+        address: json["address"],
+        imageUrl: json["imageURL"],
+      );
 }

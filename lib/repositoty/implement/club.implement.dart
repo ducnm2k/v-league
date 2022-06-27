@@ -9,7 +9,7 @@ class ClubImplement implements Clubrepository{
   RestAPI restAPI = RestAPI();
   @override
   Future<PaginationModel<ClubModel>> getClubs() async {
-    final respone = await restAPI.get<PaginationModel<ClubModel>>('/api/clubs') ;
+    final respone = await restAPI.get<PaginationModel<ClubModel>>('/api/clubs?Include=stadium');
     final data = PaginationModel<ClubModel>.fromJson(respone, ClubModel.fromJson);
     return data;
   }

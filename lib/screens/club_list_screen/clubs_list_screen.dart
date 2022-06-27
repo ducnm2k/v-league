@@ -5,7 +5,7 @@ import 'package:v_leauge/screens/home_screen/compoment/appbar.dart';
 
 import '../../network/api/model/club.model.dart';
 import '../../network/api/model/pagination_model.dart';
-import 'component/dtbl_club.dart';
+import '../player_stat_screen/compoment/data_table.dart';
 
 class ClubsListScreen extends StatefulWidget{
   const ClubsListScreen({Key? key}) : super(key: key);
@@ -39,11 +39,11 @@ class _ClubsListScreenState extends State<ClubsListScreen> with SingleTickerProv
         {
           if (snapshot.hasData)
             {
-              print( 'number of clubs:'  + snapshot.data!.result.length.toString() );
+              print( 'number of clubs:'  + snapshot.data!.result.length.toString());
               return Container(
                 padding: EdgeInsets.all(10),
                 child: SingleChildScrollView(
-                    // child: dataTable()
+
                 ),
               );
             }
@@ -52,7 +52,6 @@ class _ClubsListScreenState extends State<ClubsListScreen> with SingleTickerProv
           }
           return const CircularProgressIndicator();
         }
-
     ),
     );
   }

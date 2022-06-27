@@ -1,5 +1,5 @@
 class PlayerModel {
-   int id;
+    int id;
     String name;
     String imageUrl;
     DateTime dateOfBirth;

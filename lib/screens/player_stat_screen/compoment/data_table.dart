@@ -39,6 +39,8 @@ DataTable dataTable(List<PlayerModel> list) {
           style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
         )),
       ],
+    
+    
 
       rows:
       list.map(
@@ -47,23 +49,25 @@ DataTable dataTable(List<PlayerModel> list) {
             DataCell(Text(element.name)),
             if(element.imageUrl.isNotEmpty)
             DataCell(
-                FittedBox
-                  (
-                    fit: BoxFit.contain,
-                    child:
-                    Image.network(element.imageUrl)
-                )
-            )
+              Image.network(element.imageUrl),
+            //     FittedBox
+            //       (
+            //         fit: BoxFit.contain,
+            //         child:
+            //         Image.network(element.imageUrl)
+            //     )
+             )
             else
               DataCell(
-                  FittedBox
-                    (
-                      fit: BoxFit.contain,
-                      child:
-                      Image(
-                        image: AssetImage("assets/images/local-file-not-found.png"),
-                      )
-                  )
+                Image.network(element.imageUrl)
+                  // FittedBox
+                  //   (
+                  //     fit: BoxFit.contain,
+                  //     child:
+                  //     Image(
+                  //       image: AssetImage("assets/images/local-file-not-found.png"),
+                  //     )
+                  // )
               ),
             DataCell(Text('')),
             DataCell(Text('')),
