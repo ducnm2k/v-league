@@ -30,6 +30,7 @@ class _PlayerStatisticScreenState extends State<PlayerStatisticScreen>
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
         appBar: buildAppBar(),
         body: FutureBuilder<PaginationModel<PlayerModel>>(
@@ -40,7 +41,10 @@ class _PlayerStatisticScreenState extends State<PlayerStatisticScreen>
               return Container(
                 padding: EdgeInsets.all(10),
                 child: SingleChildScrollView(
-                          child: dataTable(snapshot.data!.result)
+                          child: FittedBox(
+                            fit: BoxFit.cover,
+                              child: dataTable(snapshot.data!.result)
+                          )
                       ),
               );
             }

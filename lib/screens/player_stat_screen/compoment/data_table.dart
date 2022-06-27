@@ -19,12 +19,12 @@ class _GetListUserState extends State<GetListPlayer> {
 
 DataTable dataTable(List<PlayerModel> list) {
   return DataTable(
-    columnSpacing: 30,
-    dataRowHeight: 128,
+    columnSpacing: 50,
+    dataRowHeight: 100,
       columns: [
         DataColumn(label: Text(
           "Name",
-          style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+          style: TextStyle(fontSize: 16, ),
         )),
         DataColumn(label: Text(
           "Image",
@@ -43,12 +43,14 @@ DataTable dataTable(List<PlayerModel> list) {
     
 
       rows:
+
       list.map(
         ((element) => DataRow(
           cells: <DataCell>[
-            DataCell(Text(element.name)),
+            DataCell(Text(element.name, style: TextStyle(fontSize: 13),)),
             if(element.imageUrl.isNotEmpty)
             DataCell(
+<<<<<<< Updated upstream
               Image.network(element.imageUrl),
             //     FittedBox
             //       (
@@ -68,6 +70,25 @@ DataTable dataTable(List<PlayerModel> list) {
                   //       image: AssetImage("assets/images/local-file-not-found.png"),
                   //     )
                   // )
+=======
+                FittedBox
+                  (
+                    fit: BoxFit.fitHeight,
+                    child:
+                    Image.network(element.imageUrl, )
+                )
+            )
+            else
+              DataCell(
+                  FittedBox
+                    (
+                      fit: BoxFit.fitHeight,
+                      child:
+                      Image(
+                        image: AssetImage("assets/images/local-file-not-found.png"),
+                      )
+                  )
+>>>>>>> Stashed changes
               ),
             DataCell(Text('')),
             DataCell(Text('')),

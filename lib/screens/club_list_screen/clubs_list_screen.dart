@@ -39,7 +39,12 @@ class _ClubsListScreenState extends State<ClubsListScreen> with SingleTickerProv
         {
           if (snapshot.hasData)
             {
+<<<<<<< Updated upstream
               print( 'number of clubs:'  + snapshot.data!.result.length.toString());
+=======
+              // print( 'number of clubs:'  + snapshot.data!.result.length.toString() );
+              print(snapshot.data!.result.first.imageUrl);
+>>>>>>> Stashed changes
               return Container(
                 padding: EdgeInsets.all(10),
                 child: SingleChildScrollView(

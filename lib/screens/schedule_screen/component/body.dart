@@ -20,9 +20,14 @@ class ScheduleBody extends StatelessWidget{
 }
 
 _header(context){
-
+  return Column(
+    crossAxisAlignment: CrossAxisAlignment.stretch,
+    children: [
+      Text("SCHEDULE"),
+    ],
+  );
 }
 
 _table(context){
-
+  return Column();
 }
