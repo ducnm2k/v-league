@@ -4,7 +4,7 @@ import 'package:v_leauge/repositoty/interface/account.interface.dart';
 import '../../network/api/model/pagination_model.dart';
 import '../../network/restapi.dart';
 
-class AccountImplement implements AccountRepository{
+class AccountImplement implements IAccountRepository{
   RestAPI restAPI = RestAPI();
   @override
   Future<PaginationModel<AccountModel>> getAccount() async {

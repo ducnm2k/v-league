@@ -21,13 +21,16 @@ class _ClubsListScreenState extends State<ClubsListScreen> with SingleTickerProv
   @override
   void initState() {
     super.initState();
-    fetchClub = ClubImplement().getClubs();
+    fetchClub =  ClubImplement().getClubs();
   }
 
   @override
   void dispose() {
     super.dispose();
   }
+  // Future getClub() async {
+  //   fetchClub =  ClubImplement().getClubs();
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -40,12 +43,12 @@ class _ClubsListScreenState extends State<ClubsListScreen> with SingleTickerProv
           if (snapshot.hasData)
             {
               print( 'number of clubs:'  + snapshot.data!.result.length.toString());
-              return Container(
-                padding: EdgeInsets.all(10),
-                child: SingleChildScrollView(
+              // return Container(
+              //   padding: EdgeInsets.all(10),
+              //   child: SingleChildScrollView(
 
-                ),
-              );
+              //   ),
+              // );
             }
           else if (snapshot.hasError) {
             return Text('${snapshot.error}');

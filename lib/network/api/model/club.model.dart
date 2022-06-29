@@ -13,16 +13,24 @@ class ClubModel {
   String imageUrl;
   String headQuarter;
   int stadiumId;
-  Stadium stadium;
+  Stadium? stadium;
 
   factory ClubModel.fromJson(Map<String, dynamic> json) => ClubModel(
         id: json["id"],
         name: json["name"],
         imageUrl: json["imageURL"],
-        headQuarter: json["headQuarter"],
-        stadiumId: json["stadiumID"],
-        stadium: Stadium.fromJson(json["stadium"]),
+        headQuarter: json["headQuarter"] == null ? '' : json["headQuarter"],
+        stadiumId: json["stadiumID"] == null ? 0 : json["stadiumID"],
+        stadium: json["stadium"] == null ? null : Stadium.fromJson(json["stadium"]),
       );
+  Map<String, dynamic> toJson() => {
+    "id": id,
+    "name": name,
+    "imageURL": imageUrl,
+    "headQuarter": headQuarter == null ? null : headQuarter,
+    "stadiumID": stadiumId == null ? null : stadiumId,
+    "stadium": stadium == null ? null : stadium!.toJson(),
+  };
 }
 
 class Stadium {
@@ -44,4 +52,10 @@ class Stadium {
         address: json["address"],
         imageUrl: json["imageURL"],
       );
+  Map<String, dynamic> toJson() => {
+    "id": id,
+    "name": name,
+    "address": address,
+    "imageURL": imageUrl,
+  };
 }

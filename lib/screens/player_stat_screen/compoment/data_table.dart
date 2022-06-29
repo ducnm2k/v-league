@@ -48,29 +48,13 @@ DataTable dataTable(List<PlayerModel> list) {
           cells: <DataCell>[
             DataCell(Text(element.name)),
             if(element.imageUrl.isNotEmpty)
-            DataCell(
-              Image.network(element.imageUrl),
-            //     FittedBox
-            //       (
-            //         fit: BoxFit.contain,
-            //         child:
-            //         Image.network(element.imageUrl)
-            //     )
-             )
+            DataCell(Image.network(element.imageUrl, height: 100, width: 100,))
             else
-              DataCell(
-                Image.network(element.imageUrl)
-                  // FittedBox
-                  //   (
-                  //     fit: BoxFit.contain,
-                  //     child:
-                  //     Image(
-                  //       image: AssetImage("assets/images/local-file-not-found.png"),
-                  //     )
-                  // )
-              ),
-            DataCell(Text('')),
-            DataCell(Text('')),
+               DataCell(
+                 Text(element.dateOfBirth!.timeZoneName),
+               ),
+             DataCell(Text('')),
+             DataCell(Text('')),
           ],
         )),
       ).toList(),

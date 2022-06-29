@@ -71,7 +71,7 @@ class ProfilePage extends StatelessWidget {
     child: RaisedButton(
       color: Color(0xfff6f6f6),
       onPressed: (){},
-      child: Text('Update',style: TextStyle(color: Colors.blueAccent),),
+      child: Text('Update',style: TextStyle(color: Colors.green),),
           ),
         )
 
