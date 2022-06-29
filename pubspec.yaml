@@ -47,6 +47,9 @@ dependencies:
   firebase_core: ^1.17.1
   firebase_auth: ^3.3.19
   json_annotation: ^4.5.0
+  flutter_screenutil: ^5.0.0+2
+  flutter_svg: ^0.22.0
+  google_fonts: ^2.1.0
 
 dev_dependencies:
   flutter_test:

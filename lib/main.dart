@@ -2,7 +2,12 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:v_leauge/footer_bar.dart';
+
+import 'package:v_leauge/screens/football_match_schedule_and_football_player_screen/screens_schedule_players.dart';
+import 'package:v_leauge/screens/football_match_schedule_and_football_player_screen/widgets/football_schedule.dart';
 import 'package:v_leauge/screens/login_screen/login_screen.dart';
+import 'package:v_leauge/screens/news_screen/new_ui.dart';
+import 'package:v_leauge/screens/profile_screen/profilepage.dart';
 import 'package:v_leauge/services/local-notification_service.dart';
 
 Future<void> backgroundHandler(RemoteMessage message) async {
@@ -25,10 +30,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.green,
       ),
 
-      home: Notification(),
+      //home: Notification(),
+      home: FootBallScreen(),
       routes: {
         "red": (_) => FooterBar(),
         "green": (_) => LoginForm(),
