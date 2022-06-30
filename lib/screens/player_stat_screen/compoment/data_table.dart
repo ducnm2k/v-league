@@ -49,6 +49,7 @@ DataTable dataTable(List<PlayerModel> list) {
           cells: <DataCell>[
             DataCell(Text(element.name, style: TextStyle(fontSize: 13),)),
             if(element.imageUrl.isNotEmpty)
+<<<<<<< HEAD
             DataCell(
 <<<<<<< Updated upstream
               Image.network(element.imageUrl),
@@ -92,6 +93,15 @@ DataTable dataTable(List<PlayerModel> list) {
               ),
             DataCell(Text('')),
             DataCell(Text('')),
+=======
+            DataCell(Image.network(element.imageUrl, height: 100, width: 100,))
+            else
+               DataCell(
+                 Text(element.dateOfBirth!.timeZoneName),
+               ),
+             DataCell(Text('')),
+             DataCell(Text('')),
+>>>>>>> main
           ],
         )),
       ).toList(),

@@ -44,14 +44,14 @@ DataTable dataTable(List<PlayerModel> list) {
     list.map(
       ((element) => DataRow(
         cells: <DataCell>[
-          DataCell(Text(element.name)),
-          if(element.imageUrl.isNotEmpty)
+          DataCell(Text(element.name!)),
+          if(element.imageUrl!.isNotEmpty)
             DataCell(
                 FittedBox
                   (
                     fit: BoxFit.contain,
                     child:
-                    Image.network(element.imageUrl)
+                    Image.network(element.imageUrl!)
                 )
             )
           else

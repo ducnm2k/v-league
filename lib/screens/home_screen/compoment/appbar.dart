@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:v_leauge/screens/player_stat_screen/player_stat.dart';
+import 'package:v_leauge/screens/profile_screen/profilepage.dart';
 
 
 import '../../login_screen/login_screen.dart';
@@ -31,7 +31,7 @@ AppBar buildAppBar() {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => PlayerStatisticScreen()));
+                          builder: (context) => ProfilePage()));
                 });
               },
             ),

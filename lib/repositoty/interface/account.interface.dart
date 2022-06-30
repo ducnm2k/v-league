@@ -2,6 +2,6 @@ import 'package:v_leauge/network/api/model/account.model.dart';
 
 import '../../network/api/model/pagination_model.dart';
 
-abstract class AccountRepository{
+abstract class IAccountRepository{
   Future<PaginationModel<AccountModel>> getAccount();
 }

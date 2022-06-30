@@ -62,22 +62,25 @@ class _BodyState extends State<Body> {
                         height: 20,
                       ),
                       Text(
-                        "Kết Quả",
+                        "11/12/2021",
                         style: TextStyle(
                           fontSize: 40,
                         ),
                       ),
                       Text(
-                        "=========",
+                        "8:00PM",
                         style: TextStyle(color: Colors.green),
                       ),
+                      //khoảng cách
                       SizedBox(
                         height: 30,
                       ),
+                      //row xet tên 1 hang ngang
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Image.asset('assets/images/logo_bfc.png', height: 100, width: 100,),
+                          Text('data'),
+                          Image.asset('assets/images/logo_bfc.png', height: 50, width: 50,),
                           SizedBox(
                             width: 20,
                           ),
@@ -93,7 +96,8 @@ class _BodyState extends State<Body> {
                           SizedBox(
                             width: 20,
                           ),
-                          Image.asset('assets/images/logo_bfc.png', height: 100, width: 100,),
+                          Image.asset('assets/images/logo_bfc.png', height: 50, width: 50,),
+                          Text('data'),
                         ],
                       ),
                       SizedBox(

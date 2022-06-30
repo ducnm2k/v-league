@@ -34,7 +34,8 @@ class _FooterBarState extends State<FooterBar> {
         body: _children[_selectedIndex],
         bottomNavigationBar: BottomNavigationBar(
           currentIndex: _selectedIndex,
-          selectedItemColor: Colors.green.shade800,
+          unselectedItemColor: Colors.grey,
+          selectedItemColor: Colors.green,
           onTap: _onItemTapped,
           type: BottomNavigationBarType.fixed,
           items: const <BottomNavigationBarItem>[
