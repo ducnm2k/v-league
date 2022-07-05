@@ -5,7 +5,8 @@ import 'package:v_leauge/screens/home_screen/compoment/appbar.dart';
 
 import '../../network/api/model/club.model.dart';
 import '../../network/api/model/pagination_model.dart';
-import '../player_stat_screen/compoment/data_table.dart';
+import '../club_list_screen/component/dtbl_club.dart';
+import 'component/club_list_view.dart';
 
 class ClubsListScreen extends StatefulWidget{
   const ClubsListScreen({Key? key}) : super(key: key);
@@ -42,24 +43,11 @@ class _ClubsListScreenState extends State<ClubsListScreen> with SingleTickerProv
         {
           if (snapshot.hasData)
             {
-<<<<<<< Updated upstream
               print( 'number of clubs:'  + snapshot.data!.result.length.toString());
-<<<<<<< HEAD
-=======
+
               // print( 'number of clubs:'  + snapshot.data!.result.length.toString() );
               print(snapshot.data!.result.first.imageUrl);
->>>>>>> Stashed changes
-              return Container(
-                padding: EdgeInsets.all(10),
-                child: SingleChildScrollView(
-=======
-              // return Container(
-              //   padding: EdgeInsets.all(10),
-              //   child: SingleChildScrollView(
->>>>>>> main
-
-              //   ),
-              // );
+              return buildListView(snapshot.data!.result);
             }
           else if (snapshot.hasError) {
             return Text('${snapshot.error}');

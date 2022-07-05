@@ -43,15 +43,12 @@ DataTable dataTable(List<PlayerModel> list) {
     
 
       rows:
-
       list.map(
         ((element) => DataRow(
           cells: <DataCell>[
             DataCell(Text(element.name, style: TextStyle(fontSize: 13),)),
             if(element.imageUrl.isNotEmpty)
-<<<<<<< HEAD
             DataCell(
-<<<<<<< Updated upstream
               Image.network(element.imageUrl),
             //     FittedBox
             //       (
@@ -60,25 +57,7 @@ DataTable dataTable(List<PlayerModel> list) {
             //         Image.network(element.imageUrl)
             //     )
              )
-            else
-              DataCell(
-                Image.network(element.imageUrl)
-                  // FittedBox
-                  //   (
-                  //     fit: BoxFit.contain,
-                  //     child:
-                  //     Image(
-                  //       image: AssetImage("assets/images/local-file-not-found.png"),
-                  //     )
-                  // )
-=======
-                FittedBox
-                  (
-                    fit: BoxFit.fitHeight,
-                    child:
-                    Image.network(element.imageUrl, )
-                )
-            )
+
             else
               DataCell(
                   FittedBox
@@ -89,11 +68,10 @@ DataTable dataTable(List<PlayerModel> list) {
                         image: AssetImage("assets/images/local-file-not-found.png"),
                       )
                   )
->>>>>>> Stashed changes
               ),
             DataCell(Text('')),
             DataCell(Text('')),
-=======
+            if(element.imageUrl.isNotEmpty)
             DataCell(Image.network(element.imageUrl, height: 100, width: 100,))
             else
                DataCell(
@@ -101,7 +79,6 @@ DataTable dataTable(List<PlayerModel> list) {
                ),
              DataCell(Text('')),
              DataCell(Text('')),
->>>>>>> main
           ],
         )),
       ).toList(),

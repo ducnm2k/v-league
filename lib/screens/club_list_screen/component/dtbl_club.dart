@@ -1,23 +1,23 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:v_leauge/network/api/model/player.model.dart';
+import 'package:v_leauge/network/api/model/club.model.dart';
 
 
-class GetListPlayer extends StatefulWidget {
-  const GetListPlayer({Key? key}) : super(key: key);
+class GetListClub extends StatefulWidget {
+  const GetListClub({Key? key}) : super(key: key);
 
   @override
-  State<GetListPlayer> createState() => _GetListUserState();
+  State<GetListClub> createState() => _GetListClubState();
 }
 
-class _GetListUserState extends State<GetListPlayer> {
+class _GetListClubState extends State<GetListClub> {
   @override
   Widget build(BuildContext context) {
     return Container();
   }
 }
 
-DataTable dataTable(List<PlayerModel> list) {
+DataTable dataTable(List<ClubModel> list) {
   return DataTable(
     columnSpacing: 30,
     dataRowHeight: 128,
@@ -28,14 +28,6 @@ DataTable dataTable(List<PlayerModel> list) {
       )),
       DataColumn(label: Text(
         "Image",
-        style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-      )),
-      DataColumn(label: Text(
-        "FC",
-        style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-      )),
-      DataColumn(label: Text(
-        "Goal",
         style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
       )),
     ],
@@ -65,8 +57,6 @@ DataTable dataTable(List<PlayerModel> list) {
                     )
                 )
             ),
-          DataCell(Text('')),
-          DataCell(Text('')),
         ],
       )),
     ).toList(),
