@@ -19,12 +19,12 @@ class _GetListUserState extends State<GetListPlayer> {
 
 DataTable dataTable(List<PlayerModel> list) {
   return DataTable(
-    columnSpacing: 30,
-    dataRowHeight: 128,
+    columnSpacing: 50,
+    dataRowHeight: 100,
       columns: [
         DataColumn(label: Text(
           "Name",
-          style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+          style: TextStyle(fontSize: 16, ),
         )),
         DataColumn(label: Text(
           "Image",
@@ -46,7 +46,7 @@ DataTable dataTable(List<PlayerModel> list) {
       list.map(
         ((element) => DataRow(
           cells: <DataCell>[
-            DataCell(Text(element.name)),
+            DataCell(Text(element.name, style: TextStyle(fontSize: 13),)),
             if(element.imageUrl.isNotEmpty)
             DataCell(
               Image.network(element.imageUrl),
@@ -57,20 +57,28 @@ DataTable dataTable(List<PlayerModel> list) {
             //         Image.network(element.imageUrl)
             //     )
              )
+
             else
               DataCell(
-                Image.network(element.imageUrl)
-                  // FittedBox
-                  //   (
-                  //     fit: BoxFit.contain,
-                  //     child:
-                  //     Image(
-                  //       image: AssetImage("assets/images/local-file-not-found.png"),
-                  //     )
-                  // )
+                  FittedBox
+                    (
+                      fit: BoxFit.fitHeight,
+                      child:
+                      Image(
+                        image: AssetImage("assets/images/local-file-not-found.png"),
+                      )
+                  )
               ),
             DataCell(Text('')),
             DataCell(Text('')),
+            if(element.imageUrl.isNotEmpty)
+            DataCell(Image.network(element.imageUrl, height: 100, width: 100,))
+            else
+               DataCell(
+                 Text(element.dateOfBirth!.timeZoneName),
+               ),
+             DataCell(Text('')),
+             DataCell(Text('')),
           ],
         )),
       ).toList(),

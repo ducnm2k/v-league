@@ -65,7 +65,8 @@ class LoginForm extends StatelessWidget {
                                       accessToken: googleauth.accessToken,
                                       idToken: googleauth.idToken
                                   );
-                                  await FirebaseAuth.instance.signInWithCredential(creds);
+                                final a =   await FirebaseAuth.instance.signInWithCredential(creds);
+                                a.user!.getIdToken();
                                   Navigator.push(context, MaterialPageRoute(builder: (context) => FooterBar()));
                                 } catch (e) {
                                   print(e);
