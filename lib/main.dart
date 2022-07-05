@@ -30,11 +30,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-<<<<<<< HEAD
-        primarySwatch: Colors.green,
-=======
-        //primarySwatch: Colors.blue,
->>>>>>> main
+
+       // primarySwatch: Colors.green,
+
+        primarySwatch: Colors.blue,
+
       ),
 
       //home: Notification(),
