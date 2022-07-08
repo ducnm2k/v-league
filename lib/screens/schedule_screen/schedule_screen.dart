@@ -9,6 +9,9 @@ class ScheduleScreen extends StatefulWidget {
 }
 
 class _ScheduleScreenState extends State<ScheduleScreen> {
+  List<String> tournamentsList = [];
+  List<String> roundsList = [];
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(

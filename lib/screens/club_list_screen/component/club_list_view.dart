@@ -11,7 +11,7 @@ ListView buildListView(List<ClubModel> list) {
         leading: Image.network(list.elementAt(index).imageUrl),
         title: Text(list.elementAt(index).name, textAlign: TextAlign.start,),
         onLongPress: (){
-
+          //_clubDetail(list.elementAt(index).id);
         },
       );
     },
