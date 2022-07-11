@@ -6,9 +6,9 @@ import 'package:v_leauge/repositoty/interface/new.interface.dart';
 class NewImplement extends INewRepository{
   RestAPI restAPI =  RestAPI();
   @override
-  Future<PaginationModel<NewModel>> getNews() async {
-    final respone = await restAPI.get<PaginationModel<NewModel>>('/api/news?Include=author');
-    final data = PaginationModel<NewModel>.fromJson(respone, NewModel.fromJson);
+  Future<PaginationModel<NewsModel>> getNews() async {
+    final respone = await restAPI.get<PaginationModel<NewsModel>>('/api/news?Include=author');
+    final data = PaginationModel<NewsModel>.fromJson(respone, NewsModel.fromJson);
     return data;
   }
 

@@ -12,7 +12,7 @@ class NewsUI extends StatefulWidget {
 }
 
 class _NewsUIState extends State<NewsUI> {
-  late Future<PaginationModel<NewModel>> fetchNew;
+  late Future<PaginationModel<NewsModel>> fetchNew;
 
   @override
   void initState() {
@@ -26,7 +26,7 @@ class _NewsUIState extends State<NewsUI> {
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder<PaginationModel<NewModel>>(
+    return FutureBuilder<PaginationModel<NewsModel>>(
       future: fetchNew,
       builder: (context, snapshot){
         if(snapshot.hasData){
@@ -36,7 +36,7 @@ class _NewsUIState extends State<NewsUI> {
                 SizedBox(
                   height: 20,
                 ),
-                Image.network(snapshot.data!.result[2].author.imageUrl),
+                Image.network(snapshot.data!.result[2].thumbnailImageUrl),
                 SizedBox(
                   height: 10,
                 ),

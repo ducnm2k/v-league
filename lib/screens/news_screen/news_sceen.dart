@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:v_leauge/screens/home_screen/home_details.dart';
 import 'package:v_leauge/screens/login_screen/login_screen.dart';
-import 'package:v_leauge/screens/news_screen/new_ui.dart';
+import 'package:v_leauge/screens/news_screen/news_ui.dart';
 
 
 class News extends StatefulWidget {
