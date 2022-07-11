@@ -29,9 +29,6 @@ class _ClubsListScreenState extends State<ClubsListScreen> with SingleTickerProv
   void dispose() {
     super.dispose();
   }
-  // Future getClub() async {
-  //   fetchClub =  ClubImplement().getClubs();
-  // }
 
   @override
   Widget build(BuildContext context) {
@@ -57,5 +54,4 @@ class _ClubsListScreenState extends State<ClubsListScreen> with SingleTickerProv
     ),
     );
   }
-
 }
