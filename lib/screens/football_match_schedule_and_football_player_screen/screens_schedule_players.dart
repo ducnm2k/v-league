@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:v_leauge/screens/football_match_schedule_and_football_player_screen/widgets/football_schedule.dart';
-import 'package:v_leauge/screens/football_match_schedule_and_football_player_screen/widgets/football_player.dart';
+import 'package:v_leauge/screens/football_match_schedule_and_football_player_screen/football_player.dart';
 import 'package:v_leauge/screens/home_screen/home_details.dart';
+
+import 'football_schedule.dart';
 
 class FootBallScreen extends StatefulWidget {
   const FootBallScreen({Key? key}) : super(key: key);
@@ -48,29 +49,62 @@ class _FootBallScreenState extends State<FootBallScreen>
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-    child: Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        bottom: PreferredSize(
-          preferredSize: Size.fromHeight(10.0),
-          child: TabBar(
-            indicatorColor: Colors.green,
-            isScrollable: true,
-            labelColor: Colors.green,
+    return Stack(
+      children: [
+        Container(
+          child: TabBarView(
+            children: _views,
             controller: tabController,
-            tabs: tabList,
+
+          ),
+
+          color: Colors.green,
+          //height: 300.0,
+          //width: 500.0,
+        ),
+        // Container(
+        //   child: TabBar(
+        //     indicatorColor: Colors.green,
+        //     isScrollable: true,
+        //     labelColor: Colors.green,
+        //     controller: tabController,
+        //
+        //     tabs: tabList,
+        //   ),
+        // ),
+        Align(
+          alignment: Alignment.bottomCenter,
+          child: Container(
+            color: Colors.white,
+            height: 300.0,
+            width: 500.0,
           ),
         ),
-      ),
-
-      body: TabBarView(
-        controller: tabController,
-        children: _views,
-      ),
-    ),
-
-
+      ],
     );
+    //   SafeArea(
+    // child: Scaffold(
+    //   appBar: AppBar(
+    //     backgroundColor: Colors.white,
+    //     bottom: PreferredSize(
+    //       preferredSize: Size.fromHeight(10.0),
+    //       child: TabBar(
+    //         indicatorColor: Colors.green,
+    //         isScrollable: true,
+    //         labelColor: Colors.green,
+    //         controller: tabController,
+    //         tabs: tabList,
+    //       ),
+    //     ),
+    //   ),
+    //
+    //   body: TabBarView(
+    //     controller: tabController,
+    //     children: _views,
+    //   ),
+    // ),
+    //
+    //
+    // );
   }
 }
