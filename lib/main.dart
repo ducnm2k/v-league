@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:v_leauge/footer_bar.dart';
+import 'package:v_leauge/screens/football_match_schedule_and_football_player_screen/football_main.dart';
 import 'package:v_leauge/screens/football_match_schedule_and_football_player_screen/football_schedule.dart';
 import 'package:v_leauge/screens/football_match_schedule_and_football_player_screen/screens_schedule_players.dart';
 import 'package:v_leauge/screens/login_screen/login_screen.dart';
@@ -36,7 +37,7 @@ class MyApp extends StatelessWidget {
 
       ),
 
-      home: FootBallScreen(),
+      home: FootBallMain(),
       //home: Notification(),
       routes: {
         "red": (_) => FooterBar(),
@@ -60,8 +61,8 @@ class _Notification extends State<Notification> {
     super.initState();
     LocalnotificationService.initialize(context);
 
-    ///gives you the message on which user taps
-    ///and it opened the app from terminated state
+    //gives you the message on which user taps
+    //and it opened the app from terminated state
     FirebaseMessaging.instance.getInitialMessage().then((message) {
       if (message != null) {
         final routeFromMessage = message.data["route"];
@@ -69,7 +70,7 @@ class _Notification extends State<Notification> {
       }
     });
 
-    ///forground work
+    //forground work
     FirebaseMessaging.onMessage.listen((message) {
       if (message.notification != null) {
         print(message.notification!.body);
@@ -89,7 +90,6 @@ class _Notification extends State<Notification> {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return SafeArea(
       child: Scaffold(
         body: FooterBar(),
