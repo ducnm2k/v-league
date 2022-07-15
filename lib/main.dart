@@ -37,7 +37,7 @@ class MyApp extends StatelessWidget {
 
       ),
 
-      home: FootBallMain(),
+      home: Notification(),
       //home: Notification(),
       routes: {
         "red": (_) => FooterBar(),

@@ -29,7 +29,6 @@ class NewsModel {
     players: List<dynamic>.from(json["players"].map((x) => x)),
     clubs: List<dynamic>.from(json["clubs"].map((x) => x)),
   );
-
 }
 class Author {
   Author({

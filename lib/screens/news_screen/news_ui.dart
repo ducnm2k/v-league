@@ -14,8 +14,8 @@ class NewsUI extends StatefulWidget {
 }
 
 class _NewsUIState extends State<NewsUI> {
-  late Future<PaginationModel<NewsModel>> fetchNew;
   late Future<PaginationModel<ClubModel>> fetchClub;
+  late Future<PaginationModel<NewsModel>> fetchNew;
 
   @override
   void initState() {
