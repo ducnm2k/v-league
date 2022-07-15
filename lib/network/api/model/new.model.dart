@@ -1,5 +1,5 @@
-class NewModel {
-  NewModel({
+class NewsModel {
+  NewsModel({
     required this.id,
     required this.createdAt,
     required this.title,
@@ -19,7 +19,7 @@ class NewModel {
   List<dynamic> players;
   List<dynamic> clubs;
 
-  factory NewModel.fromJson(Map<String, dynamic> json) => NewModel(
+  factory NewsModel.fromJson(Map<String, dynamic> json) => NewsModel(
     id: json["id"],
     createdAt: DateTime.parse(json["createdAt"]),
     title: json["title"],

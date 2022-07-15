@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:v_leauge/network/api/model/new.model.dart';
+import 'package:v_leauge/repositoty/implement/club.implement.dart';
 import 'package:v_leauge/repositoty/implement/new.implement.dart';
 
+import '../../network/api/model/club.model.dart';
 import '../../network/api/model/pagination_model.dart';
 
 class NewsUI extends StatefulWidget {
@@ -12,12 +14,14 @@ class NewsUI extends StatefulWidget {
 }
 
 class _NewsUIState extends State<NewsUI> {
-  late Future<PaginationModel<NewModel>> fetchNew;
+  late Future<PaginationModel<NewsModel>> fetchNew;
+  late Future<PaginationModel<ClubModel>> fetchClub;
 
   @override
   void initState() {
     super.initState();
     fetchNew =  NewImplement().getNews();
+    fetchClub = ClubImplement().getClubs();
   }
   @override
   void dispose() {
@@ -26,8 +30,8 @@ class _NewsUIState extends State<NewsUI> {
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder<PaginationModel<NewModel>>(
-      future: fetchNew,
+    return FutureBuilder<PaginationModel<NewsModel>>(
+      future: fetchNew ,
       builder: (context, snapshot){
         if(snapshot.hasData){
           return Scaffold(
@@ -36,7 +40,7 @@ class _NewsUIState extends State<NewsUI> {
                 SizedBox(
                   height: 20,
                 ),
-                Image.network(snapshot.data!.result[2].author.imageUrl),
+                Image.network(snapshot.data!.result[2].thumbnailImageUrl),
                 SizedBox(
                   height: 10,
                 ),
@@ -50,6 +54,7 @@ class _NewsUIState extends State<NewsUI> {
                 ),
                 Text(snapshot.data!.result[2].createdAt.toString()),
               ],
+
             ),
           );
         }

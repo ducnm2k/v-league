@@ -61,18 +61,18 @@ class ProfilePage extends StatelessWidget {
           width: 100,
           decoration: BoxDecoration(
             boxShadow: [
-              BoxShadow(
-    color: Color.fromARGB(90, 20, 20, 20),
-    blurRadius: 10,
-    offset: Offset(6,6),
-    )
+    //           BoxShadow(
+    // color: Color.fromARGB(90, 20, 20, 20),
+    // blurRadius: 10,
+    // offset: Offset(6,6),
+    // )
     ]
             ),
-    child: RaisedButton(
-      color: Color(0xfff6f6f6),
-      onPressed: (){},
-      child: Text('Update',style: TextStyle(color: Colors.green),),
-          ),
+    // child: RaisedButton(
+    //   color: Color(0xfff6f6f6),
+    //   onPressed: (){},
+      //child: Text('Update',style: TextStyle(color: Colors.green),),
+         // ),
         )
 
       ],
@@ -80,13 +80,13 @@ class ProfilePage extends StatelessWidget {
   }
   Widget build(BuildContext context){
     return Scaffold(
-      backgroundColor: Colors.white,
       appBar: AppBar(
+        backgroundColor: Colors.green,
         title: Text(
           "Profile",
           style: TextStyle(
             fontSize: 25,
-            color: Colors.black,
+            color: Colors.white,
           ),
         ),
         centerTitle: true,
