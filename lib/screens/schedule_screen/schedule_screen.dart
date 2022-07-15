@@ -1,6 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:v_leauge/repositoty/implement/tournament.implement.dart';
 import 'package:v_leauge/screens/home_screen/compoment/appbar.dart';
-import 'package:v_leauge/screens/schedule_screen/component/body.dart';
+
+import '../../network/api/model/pagination_model.dart';
+import '../../network/api/model/round.model.dart';
+import '../../network/api/model/tournament.model.dart';
+import '../../repositoty/implement/round.implement.dart';
+import '../../screens/schedule_screen/component/tabController.dart';
+
 class ScheduleScreen extends StatefulWidget {
   const ScheduleScreen({Key? key}) : super(key: key);
 
@@ -8,58 +15,67 @@ class ScheduleScreen extends StatefulWidget {
   State<ScheduleScreen> createState() => _ScheduleScreenState();
 }
 
-class _ScheduleScreenState extends State<ScheduleScreen> {
-  List<String> tournamentsList = [
-    'tournament 1',
-    'tournament 2',
-    'tournament 3',
-    'tournament 4',
-  ];
-  List<String> roundsList = [
-    'round 1',
-    'round 2',
-    'round 3',
-    'round 4',
-  ];
+class _ScheduleScreenState extends State<ScheduleScreen> with SingleTickerProviderStateMixin{
+  late Future<PaginationModel<TournamentsModel>> fetchTournament;
+  late Future<PaginationModel<RoundModel>> fetchRound;
+
+  @override
+  void initState() {
+    super.initState();
+    fetchTournament =  TournamentsImplement().getTournaments();
+    fetchRound = RoundImplement().getRound();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-        child: Scaffold(
-          appBar: buildAppBar(),
-          body: DefaultTabController(
-            length: roundsList.length,
-            child: Scaffold(
+    // TODO: implement build
+
+
+
+    return Scaffold(
+      appBar: buildAppBar(),
+      body: FutureBuilder<PaginationModel<RoundModel>>(
+        future: fetchRound,
+        builder: (context, snapshot){
+          if(snapshot.hasData)
+          {
+            print( 'number of rounds:'  + snapshot.data!.result.length.toString());
+            List<RoundModel> roundList = snapshot.data!.result;
+            return DefaultTabController(
+              length: roundList.length,
+              child: Scaffold(
                 appBar: AppBar(
                   centerTitle: true,
                   backgroundColor: Colors.transparent,
                   title: PreferredSize(
                       child: TabBar(
-                          isScrollable: true,
-                          unselectedLabelColor: Colors.white.withOpacity(0.7),
-                          indicatorColor: Colors.white,
-                          tabs:
-                          roundsList.map((e) => Tab(child: Text(e),)).toList(),
-                      ),
-                      preferredSize: Size.fromHeight(30.0)),
-                  actions: <Widget>[
-                    PopupMenuButton(
-                        icon: Icon(Icons.calendar_today_sharp),
-                        itemBuilder:(context) =>
-                        tournamentsList.map((e) => PopupMenuItem(child: Text(e),)).toList(),
+                      isScrollable: true,
+                      unselectedLabelColor: Colors.white.withOpacity(0.7),
+                      indicatorColor: Colors.white,
+                        tabs:
+                        roundList.map((e) => Tab(
+                          child: Text(e.name),
+
+                        )).toList(),
                     ),
-                  ],
+                    preferredSize: Size.fromHeight(30.0),
+                  ),
                 ),
-                body: TabBarView(
-                  children:
-                    roundsList.map((e) => Container(
-                      child: Center(
-                        child: Text(e),
-                      ),
-                    )).toList(),
-                )),
-          ),
-        )
+              ),
+            );
+          }
+          return const CircularProgressIndicator();
+        },
+      ),
     );
   }
+
+
 }
+
+
