@@ -30,6 +30,19 @@ class CauThu extends StatelessWidget {
                 height: 80,
                 width: 80,
               ),
+              Text("Quang Hải",
+                style: TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 14,
+                ),
+              ),
+              SizedBox(width: 85,),
+              Image.asset(
+                "assets/images/quanghai.jpg",
+                height: 80,
+                width: 80,
+              ),
               Container(
                 padding: EdgeInsets.only(
                   top: 2,
@@ -44,6 +57,7 @@ class CauThu extends StatelessWidget {
                     fontSize: 14,
                   ),
                 ),
+
               ),
             ],
           ),
@@ -60,6 +74,19 @@ class CauThu extends StatelessWidget {
                     Container(
                       child: Row(
                         children: [
+                          Image.asset(
+                            "assets/images/quanghai.jpg",
+                            height: 80,
+                            width: 80,
+                          ),
+                          Text("Quang Hải",
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 14,
+                            ),
+                          ),
+                          SizedBox(width: 85,),
                           Image.asset(
                             "assets/images/quanghai.jpg",
                             height: 80,
@@ -107,6 +134,19 @@ class CauThu extends StatelessWidget {
                   height: 80,
                   width: 80,
                 ),
+                Text("Quang Hải",
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 14,
+                  ),
+                ),
+                SizedBox(width: 85,),
+                Image.asset(
+                  "assets/images/quanghai.jpg",
+                  height: 80,
+                  width: 80,
+                ),
                 Container(
                   padding: EdgeInsets.only(
                     top: 2,
@@ -137,6 +177,19 @@ class CauThu extends StatelessWidget {
                     Container(
                       child: Row(
                         children: [
+                          Image.asset(
+                            "assets/images/quanghai.jpg",
+                            height: 80,
+                            width: 80,
+                          ),
+                          Text("Quang Hải",
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 14,
+                            ),
+                          ),
+                          SizedBox(width: 85,),
                           Image.asset(
                             "assets/images/quanghai.jpg",
                             height: 80,
