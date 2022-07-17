@@ -4,8 +4,8 @@ class DioClient {
   Dio configDio() {
     var options = BaseOptions(
       baseUrl: 'https://vlg-api-reserve.azurewebsites.net',
-      // connectTimeout: 3000,
-      // receiveTimeout: 3000,
+      // connectTimeout: 5000,
+      // receiveTimeout: 5000,
     );
     final dio = Dio(options);
     //AppPreference appPreferences = AppPreference();

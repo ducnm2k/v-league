@@ -3,6 +3,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:v_leauge/footer_bar.dart';
+import 'package:v_leauge/screens/home_screen/compoment/appbar.dart';
 import 'package:v_leauge/screens/login_screen/compoment/page_title_bar.dart';
 import 'package:v_leauge/screens/login_screen/compoment/under_part.dart';
 import 'package:v_leauge/screens/sign_up_screen/sign_up_screen.dart';
@@ -25,6 +26,7 @@ class LoginForm extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     return SafeArea(
       child: Scaffold(
+        appBar: buildAppBar(),
         body: SizedBox(
           width: size.width,
           height: size.height,
@@ -66,7 +68,7 @@ class LoginForm extends StatelessWidget {
                                       idToken: googleauth.idToken
                                   );
                                 final a =   await FirebaseAuth.instance.signInWithCredential(creds);
-                                a.user!.getIdToken();
+                               a.user!.getIdToken().then((token)=>print('check token ${token}'));
                                   Navigator.push(context, MaterialPageRoute(builder: (context) => FooterBar()));
                                 } catch (e) {
                                   print(e);

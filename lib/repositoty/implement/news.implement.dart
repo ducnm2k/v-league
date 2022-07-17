@@ -7,7 +7,7 @@ class NewImplement extends INewRepository{
   RestAPI restAPI =  RestAPI();
   @override
   Future<PaginationModel<NewsModel>> getNews() async {
-    final respone = await restAPI.get<PaginationModel<NewsModel>>('/api/news?Include=author');
+    final respone = await restAPI.get<PaginationModel<NewsModel>>('/api/news');
     final data = PaginationModel<NewsModel>.fromJson(respone, NewsModel.fromJson);
     return data;
   }

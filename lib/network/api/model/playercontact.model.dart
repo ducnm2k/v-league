@@ -1,5 +1,5 @@
-class PlayerContact {
-  PlayerContact({
+class PlayerContactModel {
+  PlayerContactModel({
     required this.id,
     required this.playerId,
     required this.player,
@@ -23,7 +23,7 @@ class PlayerContact {
   DateTime end;
   String description;
 
-  factory PlayerContact.fromJson(Map<String, dynamic> json) => PlayerContact(
+  factory PlayerContactModel.fromJson(Map<String, dynamic> json) => PlayerContactModel(
         id: json["id"],
         playerId: json["playerID"],
         player: Player.fromJson(json["player"]),

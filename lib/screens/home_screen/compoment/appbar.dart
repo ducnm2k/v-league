@@ -51,7 +51,12 @@ AppBar buildAppBar() {
               value: 2,
               child: Text("Sign Up"),
               onTap: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => SignUpScreen()));
+                WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => SignUpScreen()));
+                });
               },
             ),
             PopupMenuItem (

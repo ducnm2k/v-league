@@ -39,11 +39,8 @@ class MyApp extends StatelessWidget {
       ),
 
 
-      //home: Notification(),
-
-      home: Details(),
-
-      //home: Notification(),
+      //home: Details(),
+      home: Notification(),
       routes: {
         "red": (_) => FooterBar(),
         "green": (_) => LoginForm(),

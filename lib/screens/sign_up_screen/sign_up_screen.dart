@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:v_leauge/screens/home_screen/compoment/appbar.dart';
 
 import '../login_screen/compoment/screen.dart';
 
@@ -6,8 +7,10 @@ class SignUpScreen extends StatelessWidget
 {
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-    return SafeArea(child: Scaffold(
+    return SafeArea(
+        child:
+        Scaffold(
+          appBar: buildAppBar(),
       body: Container(
         margin: EdgeInsets.all(24),
         child: Column(

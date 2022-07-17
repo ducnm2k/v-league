@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:v_leauge/screens/football_match_schedule_and_football_player_screen/screens_schedule_players.dart';
+import 'package:v_leauge/screens/home_screen/compoment/appbar.dart';
 
 class FootBallMain extends StatelessWidget {
   const FootBallMain({Key? key}) : super(key: key);
@@ -8,13 +9,16 @@ class FootBallMain extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Colors.green,
+        appBar: buildAppBar(),
+        backgroundColor: Colors.black38,
         body: Column(
           children: <Widget>[
             Expanded(
-
               child: Column(
                 children: [
+                  SizedBox(
+                    height: 40,
+                  ),
                   CircleAvatar(
                     radius: 45,
                     child: CircleAvatar(
