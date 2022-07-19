@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:v_leauge/repositoty/implement/match.implement.dart';
 import 'package:v_leauge/repositoty/implement/tournament.implement.dart';
+import 'package:v_leauge/screens/football_match_schedule_and_football_player_screen/match_detail.dart';
 import 'package:v_leauge/screens/home_screen/compoment/appbar.dart';
 
+import '../../network/api/model/matchs.model.dart';
 import '../../network/api/model/pagination_model.dart';
 import '../../network/api/model/round.model.dart';
 import '../../network/api/model/tournament.model.dart';
 import '../../repositoty/implement/round.implement.dart';
-import '../../screens/schedule_screen/component/tabController.dart';
 
 class ScheduleScreen extends StatefulWidget {
   const ScheduleScreen({Key? key}) : super(key: key);
@@ -18,6 +20,7 @@ class ScheduleScreen extends StatefulWidget {
 class _ScheduleScreenState extends State<ScheduleScreen> with TickerProviderStateMixin{
   late Future<PaginationModel<TournamentsModel>> fetchTournament;
   late Future<PaginationModel<RoundModel>> fetchRound;
+  late Future<PaginationModel<MatchsModel>>fetchMatch;
   late TabController _tabController, _tabController2;
 
   @override
@@ -70,7 +73,8 @@ class _ScheduleScreenState extends State<ScheduleScreen> with TickerProviderStat
                                 indicatorColor: Colors.white,
                                 tabs:
                                 tournamentList.map((e) => Tab(
-                                  child: Text(e.name),
+                                  //child: Text(e.name),
+                                  text: tournamentID = e.id.toString(),
                                 )).toList(),
                               ),
                               preferredSize: Size.fromHeight(30.0),
@@ -90,7 +94,7 @@ class _ScheduleScreenState extends State<ScheduleScreen> with TickerProviderStat
                                     indicatorColor: Colors.white,
                                     tabs:
                                     roundList.map((e) => Tab(
-                                      child: Text(e.name),
+                                      text: roundID = e.id.toString(),
                                     )).toList(),
                                   ),
                                   preferredSize: Size.fromHeight(30.0),
@@ -99,7 +103,14 @@ class _ScheduleScreenState extends State<ScheduleScreen> with TickerProviderStat
                               body: TabBarView(
                                 controller: _tabController2,
                                 children: roundList.map((e) => Center(
-                                  child: Text(e.name.toString()),
+                                  child: TextButton(child: Text(e.name.toString()), onPressed: (){
+                                    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) => MatchDetail()));
+                                    });
+                                  }),
                                 )).toList(),
                               ),
                             ),

@@ -38,17 +38,11 @@ class MyApp extends StatelessWidget {
 
       ),
 
-
-<<<<<<< Updated upstream
-      //home: Details(),
-      home: Notification(),
-=======
       //home: Notification(),
 
       home: Notification(),
 
       //home: Notification(),
->>>>>>> Stashed changes
       routes: {
         "red": (_) => FooterBar(),
         "green": (_) => LoginForm(),

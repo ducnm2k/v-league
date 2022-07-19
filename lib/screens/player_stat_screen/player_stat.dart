@@ -31,6 +31,7 @@ class _PlayerStatisticScreenState extends State<PlayerStatisticScreen>
   @override
   Widget build(BuildContext context) {
 
+    List<PaginationModel<PlayerModel>> newPlayerList;
     return Scaffold(
         appBar: buildAppBar(),
         body: FutureBuilder<PaginationModel<PlayerModel>>(
@@ -38,15 +39,7 @@ class _PlayerStatisticScreenState extends State<PlayerStatisticScreen>
           builder: (context, snapshot) {
             if (snapshot.hasData) {
               print( 'number of players:'  + snapshot.data!.result.length.toString() );
-              return Container(
-                padding: EdgeInsets.all(10),
-                child: SingleChildScrollView(
-                          child: FittedBox(
-                            fit: BoxFit.cover,
-                              child: dataTable(snapshot.data!.result)
-                          )
-                      ),
-              );
+              return dataTable(snapshot.data!.result);
             }
             else if (snapshot.hasError) {
               return Text('${snapshot.error}');

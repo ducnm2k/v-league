@@ -31,32 +31,21 @@ class _NewsUIState extends State<NewsUI> {
       future: fetchNew ,
       builder: (context, snapshot){
         if(snapshot.hasData){
-          return Container(
-              child: TextButton(
-                onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => NewsDetails()));
-                },
-                child: Column(
-                    children: <Widget>[
-                        SizedBox(
-                          height: 20,
-                        ),
-                        Image.network(snapshot.data!.result[2].thumbnailImageUrl),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Text(snapshot.data!.result[2].title, style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black,
-                          fontSize: 18,
-                        ),),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Text(snapshot.data!.result[2].createdAt.toString()),
-                      ],
-                ),
-              ),
+
+          var list = snapshot.data!.result;
+          return ListView.separated(
+            padding: const EdgeInsets.all(8),
+            itemCount: list.length,
+            itemBuilder: (BuildContext context, int index) {
+              return ListTile(
+                leading: Image.network(list.elementAt(index).thumbnailImageUrl),
+                title: Text(list.elementAt(index).title, textAlign: TextAlign.start,),
+                onTap:() {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => NewsDetails()));
+              },
+              );
+            },
+            separatorBuilder: (BuildContext context, int index) => const Divider(),
           );
         }
         else if (snapshot.hasError) {
