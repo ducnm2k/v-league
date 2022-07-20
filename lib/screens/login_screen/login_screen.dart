@@ -1,28 +1,33 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:google_sign_in/google_sign_in.dart';
-import 'package:v_leauge/footer_bar.dart';
 import 'package:v_leauge/screens/home_screen/compoment/appbar.dart';
 import 'package:v_leauge/screens/login_screen/compoment/page_title_bar.dart';
 import 'package:v_leauge/screens/login_screen/compoment/under_part.dart';
 import 'package:v_leauge/screens/sign_up_screen/sign_up_screen.dart';
-import 'package:v_leauge/ui/widgets/rounded_input_field.dart';
-import 'package:v_leauge/ui/widgets/rounded_password_field.dart';
+import 'package:v_leauge/services/firebase_service.dart';
 
 import '../../constants.dart';
+import '../../footer_bar.dart';
 import '../../ui/widgets/widgets.dart';
 
 
-class LoginForm extends StatelessWidget {
+class LoginForm extends StatefulWidget {
   const LoginForm({Key? key}) : super(key: key);
 
   @override
+  State<LoginForm> createState() => _LoginFormState();
+}
+
+class _LoginFormState extends State<LoginForm> {
+  bool isLoading = false;
+  @override
   Widget build(BuildContext context) {
     Firebase.initializeApp();
-    GoogleSignIn _googleSignIn = GoogleSignIn(
-      scopes: ['email']
-    );
+    // GoogleSignIn googleSignIn = GoogleSignIn(
+    //   scopes: ['email']
+    // );
+
     Size size = MediaQuery.of(context).size;
     return SafeArea(
       child: Scaffold(
@@ -36,7 +41,7 @@ class LoginForm extends StatelessWidget {
                 Align(
                   alignment: Alignment.bottomCenter,
                   child: Image.asset('assets/images/logo.jpg',
-                  height: 200,
+                    height: 200,
                   ),
                 ),
                 const PageTitleBar(title: 'Login to your account'),
@@ -59,22 +64,39 @@ class LoginForm extends StatelessWidget {
                           ),
                           // iconButton(context),
                           ElevatedButton(
-                              onPressed: () async {
-                                try {
-                                  final newUser = await _googleSignIn.signIn();
-                                  final googleauth = await newUser!.authentication;
-                                  final creds = GoogleAuthProvider.credential(
-                                      accessToken: googleauth.accessToken,
-                                      idToken: googleauth.idToken
-                                  );
-                                final a =   await FirebaseAuth.instance.signInWithCredential(creds);
-                               a.user!.getIdToken().then((token)=>print('check token ${token}'));
-                                  Navigator.push(context, MaterialPageRoute(builder: (context) => FooterBar()));
-                                } catch (e) {
-                                  print(e);
+                            onPressed: () async {
+                              setState((){
+                                isLoading = true;
+                              });
+                              FirebaseService service = new FirebaseService();
+                              try {
+                                await service.signInWithGoogle();
+                                //Navigator.pushNamedAndRemoveUntil(context, Constants.homeNavigate, (route) => false);
+                                Navigator.push(context, MaterialPageRoute(builder: (context) => FooterBar()));
+                              } catch(e){
+                                if(e is FirebaseAuthException){
+                                  showMessage(e.message!);
                                 }
-                              },
-                              child: Text("Login with google")),
+                              }
+                              setState(() {
+                                isLoading = false;
+                              });
+                              //    try {
+                              //      final newUser = await googleSignIn.signIn();
+                              //      final googleauth = await newUser!.authentication;
+                              //      final creds = GoogleAuthProvider.credential(
+                              //          accessToken: googleauth.accessToken,
+                              //          idToken: googleauth.idToken
+                              //      );
+                              //   final a =   await FirebaseAuth.instance.signInWithCredential(creds);
+                              //   a.user!.getIdToken().then((token)=>print('check token ${token}'));
+                              //   Navigator.push(context, MaterialPageRoute(builder: (context) => FooterBar()));
+                              //    } catch (e) {
+                              //      print(e);
+                              //    }
+                              //
+                            },
+                            child: Text("Login with google"),),
 
                           const SizedBox(
                             height: 20,
@@ -106,7 +128,7 @@ class LoginForm extends StatelessWidget {
                                         context,
                                         MaterialPageRoute(
                                             builder: (context) =>
-                                                 SignUpScreen()));
+                                                SignUpScreen()));
                                   },
                                 ),
                                 const SizedBox(
@@ -136,7 +158,6 @@ class LoginForm extends StatelessWidget {
       ),
     );
   }
-
   switchListTile() {
     return Padding(
       padding: const EdgeInsets.only(left: 50, right: 40),
@@ -151,5 +172,23 @@ class LoginForm extends StatelessWidget {
         onChanged: (val) {},
       ),
     );
+  }
+  void showMessage(String message) {
+    showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: Text("Error"),
+            content: Text(message),
+            actions: [
+              TextButton(
+                child: Text("Ok"),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+              )
+            ],
+          );
+        });
   }
 }

@@ -9,6 +9,7 @@ import '../../sign_up_screen/sign_up_screen.dart';
 
 AppBar buildAppBar() {
   GoogleSignIn _googleSignin = GoogleSignIn();
+  User? user = FirebaseAuth.instance.currentUser;
   return AppBar(
     title: Text("V LEAGUES"),
     backgroundColor: Colors.green,

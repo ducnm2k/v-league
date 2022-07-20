@@ -1,84 +1,19 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-class ProfilePage extends StatelessWidget {
+import '../home_screen/compoment/appbar.dart';
 
-  Widget _textFormField(){
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Padding(
-            padding: EdgeInsets.symmetric(vertical: 15),
-        child: TextFormField(
-          style: TextStyle(color: Colors.black),
-          decoration: InputDecoration(
-            counterStyle: TextStyle(color: Colors.black),
-            focusColor: Colors.black,
-            icon: Icon(Icons.email),
-            hintText: 'Email',
-            hintStyle: TextStyle(
-              color: Colors.black,
-            ),
-          ),
-        ),
-        ),
-        Padding(
-          padding: EdgeInsets.symmetric(vertical: 15),
-          child: TextFormField(
-            style: TextStyle(color: Colors.black),
-            decoration: InputDecoration(
-              counterStyle: TextStyle(color: Colors.black),
-              focusColor: Colors.black,
-              icon: Icon(Icons.person),
-              hintText: 'Fullname',
-              hintStyle: TextStyle(
-                color: Colors.black,
-              ),
-            ),
-          ),
-        ),
-        Padding(
-          padding: EdgeInsets.symmetric(vertical: 15),
-          child: TextFormField(
-            obscureText: true,
-            style: TextStyle(color: Colors.black),
-            decoration: InputDecoration(
-              counterStyle: TextStyle(color: Colors.black),
-              focusColor: Colors.black,
-              icon: Icon(Icons.lock),
-              hintText: 'Password',
-              hintStyle: TextStyle(
-                color: Colors.black,
-              ),
-            ),
-          ),
-        ),
-        SizedBox(
-          height: 20,
-        ),
-        Container(
-          height: 55,
-          width: 100,
-          decoration: BoxDecoration(
-            boxShadow: [
-    //           BoxShadow(
-    // color: Color.fromARGB(90, 20, 20, 20),
-    // blurRadius: 10,
-    // offset: Offset(6,6),
-    // )
-    ]
-            ),
-    // child: RaisedButton(
-    //   color: Color(0xfff6f6f6),
-    //   onPressed: (){},
-      //child: Text('Update',style: TextStyle(color: Colors.green),),
-         // ),
-        )
+class ProfilePage extends StatefulWidget {
+  const ProfilePage({Key? key}) : super(key: key);
 
-      ],
-    );
-  }
-  Widget build(BuildContext context){
+  @override
+  State<ProfilePage> createState() => _ProfilePageState();
+}
+class _ProfilePageState extends State<ProfilePage> {
+  User? user = FirebaseAuth.instance.currentUser;
+
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.green,
@@ -103,9 +38,9 @@ class ProfilePage extends StatelessWidget {
               left: 20,
               right: 20,
             ),
-            child: SingleChildScrollView(
-
-              child: _textFormField(),),
+            // child: SingleChildScrollView(
+            //
+            //   child: _textFormField(),),
           ),
           Container(
             height: 180,
@@ -115,8 +50,8 @@ class ProfilePage extends StatelessWidget {
             width: double.infinity,
             height: 190,
             margin: EdgeInsets.symmetric(
-                vertical: 40,
-            horizontal: 20,
+              vertical: 40,
+              horizontal: 20,
             ),
             decoration: BoxDecoration(
               color: Color(0xfff6f6f6),
@@ -125,7 +60,7 @@ class ProfilePage extends StatelessWidget {
                 BoxShadow(
                   color: Color.fromARGB(90, 20, 20, 20),
                   blurRadius: 0.8,
-                  offset: Offset(9,9),
+                  offset: Offset(9, 9),
                 ),
               ],
             ),
@@ -137,11 +72,13 @@ class ProfilePage extends StatelessWidget {
                   child: CircleAvatar(
                     backgroundColor: Colors.grey,
                     radius: 42,
-                    backgroundImage: AssetImage("assets/images/login.png"),
+                    backgroundImage: NetworkImage(user!.photoURL!),
                   ),
                 ),
                 SizedBox(height: 2,),
-                Text('User',style:TextStyle(color: Colors.grey,fontWeight: FontWeight.bold,fontSize: 18),
+                Text(user!.displayName!, style: TextStyle(color: Colors.grey,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18),
                 )
               ],
             ),
@@ -150,4 +87,4 @@ class ProfilePage extends StatelessWidget {
       ),
     );
   }
-  }
+}
